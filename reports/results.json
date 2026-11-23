@@ -106,18 +106,2122 @@
   },
   "suites": [
     {
-      "title": "api/sample.spec.ts",
-      "file": "api/sample.spec.ts",
+      "title": "api/auth.spec.ts",
+      "file": "api/auth.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Auth",
+          "file": "api/auth.spec.ts",
+          "line": 8,
+          "column": 6,
+          "specs": [
+            {
+              "title": "[TC-039] Login with valid credentials",
+              "ok": true,
+              "tags": [
+                "auth",
+                "happy",
+                "smoke"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 471,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:01.480Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "6bead371ebbc451c1152-e8857ad394ee30c0dc45",
+              "file": "api/auth.spec.ts",
+              "line": 9,
+              "column": 3
+            },
+            {
+              "title": "[TC-040] Login response schema",
+              "ok": true,
+              "tags": [
+                "body-validation"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 501,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:01.502Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "6bead371ebbc451c1152-d7677387cced132c54b0",
+              "file": "api/auth.spec.ts",
+              "line": 21,
+              "column": 3
+            },
+            {
+              "title": "[TC-041] Access token payload contains expected claims",
+              "ok": true,
+              "tags": [
+                "auth"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 468,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:01.484Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "6bead371ebbc451c1152-0a7b6ea445d68488aad1",
+              "file": "api/auth.spec.ts",
+              "line": 35,
+              "column": 3
+            },
+            {
+              "title": "[TC-042] expiresInMins=1 yields short-lived token",
+              "ok": true,
+              "tags": [
+                "auth"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 481,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:01.469Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "6bead371ebbc451c1152-15bb43bcb38b20118752",
+              "file": "api/auth.spec.ts",
+              "line": 47,
+              "column": 3
+            },
+            {
+              "title": "[TC-043] Wrong password rejected",
+              "ok": true,
+              "tags": [
+                "negative",
+                "auth"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 401,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:01.986Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "6bead371ebbc451c1152-f38607ad57aa36a77fec",
+              "file": "api/auth.spec.ts",
+              "line": 58,
+              "column": 3
+            },
+            {
+              "title": "[TC-044] Unknown username rejected",
+              "ok": true,
+              "tags": [
+                "negative",
+                "auth"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 400,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:01.987Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "6bead371ebbc451c1152-1cf56e5e749ffab4ff7a",
+              "file": "api/auth.spec.ts",
+              "line": 66,
+              "column": 3
+            },
+            {
+              "title": "[TC-045] Missing password",
+              "ok": true,
+              "tags": [
+                "negative",
+                "auth"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 318,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:01.987Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "6bead371ebbc451c1152-c51a30f109ff85c8e5c0",
+              "file": "api/auth.spec.ts",
+              "line": 73,
+              "column": 3
+            },
+            {
+              "title": "[TC-046] Empty body",
+              "ok": true,
+              "tags": [
+                "negative",
+                "auth"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 331,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:02.036Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "6bead371ebbc451c1152-fd8741f11692f30fcf88",
+              "file": "api/auth.spec.ts",
+              "line": 80,
+              "column": 3
+            },
+            {
+              "title": "[TC-047] Malformed JSON body",
+              "ok": true,
+              "tags": [
+                "negative",
+                "error-code"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 327,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:02.316Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "6bead371ebbc451c1152-d9195a8bacc3ce66c62b",
+              "file": "api/auth.spec.ts",
+              "line": 87,
+              "column": 3
+            },
+            {
+              "title": "[TC-048] SQL-injection style username does not authenticate",
+              "ok": true,
+              "tags": [
+                "negative",
+                "security"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 375,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:02.381Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "6bead371ebbc451c1152-0ada6e84cddd6d6c9cf5",
+              "file": "api/auth.spec.ts",
+              "line": 98,
+              "column": 3
+            },
+            {
+              "title": "[TC-049] Get current user with valid bearer token",
+              "ok": true,
+              "tags": [
+                "auth",
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 323,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:02.403Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "6bead371ebbc451c1152-12f5b3266e9e4cde8834",
+              "file": "api/auth.spec.ts",
+              "line": 105,
+              "column": 3
+            },
+            {
+              "title": "[TC-050] Current-user schema",
+              "ok": true,
+              "tags": [
+                "body-validation",
+                "auth"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 340,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:02.403Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "6bead371ebbc451c1152-2c370dde96448935dec9",
+              "file": "api/auth.spec.ts",
+              "line": 114,
+              "column": 3
+            },
+            {
+              "title": "[TC-051] Missing token -> 401",
+              "ok": true,
+              "tags": [
+                "auth",
+                "negative",
+                "error-code"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 354,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:02.655Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "6bead371ebbc451c1152-46be0e31fa3368f05fb1",
+              "file": "api/auth.spec.ts",
+              "line": 127,
+              "column": 3
+            },
+            {
+              "title": "[TC-052] Garbage token -> 401",
+              "ok": true,
+              "tags": [
+                "auth",
+                "negative",
+                "error-code"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 335,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:02.769Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "6bead371ebbc451c1152-c31efd00e9d6b9737b7e",
+              "file": "api/auth.spec.ts",
+              "line": 134,
+              "column": 3
+            },
+            {
+              "title": "[TC-053] Tampered token signature is rejected (known API quirk: 500, not 401) @known-issue",
+              "ok": true,
+              "tags": [
+                "known-issue",
+                "auth",
+                "negative",
+                "security",
+                "known-issue"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 320,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:03.023Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "6bead371ebbc451c1152-00481d53d8818934c381",
+              "file": "api/auth.spec.ts",
+              "line": 141,
+              "column": 3
+            },
+            {
+              "title": "[TC-054] Expired token -> 401",
+              "ok": true,
+              "tags": [
+                "auth",
+                "negative",
+                "slow"
+              ],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 66034,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:03.115Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "6bead371ebbc451c1152-aec3f15a1cda7ba6a7a1",
+              "file": "api/auth.spec.ts",
+              "line": 155,
+              "column": 3
+            },
+            {
+              "title": "[TC-055] Wrong scheme (Basic) -> 401",
+              "ok": true,
+              "tags": [
+                "auth",
+                "negative"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 342,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:03.177Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "6bead371ebbc451c1152-5458503311dc6eaac2d0",
+              "file": "api/auth.spec.ts",
+              "line": 168,
+              "column": 3
+            },
+            {
+              "title": "[TC-056] Refresh session with valid refresh token",
+              "ok": true,
+              "tags": [
+                "auth",
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 577,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:03.182Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "6bead371ebbc451c1152-62dfd3d2aee4671e4de2",
+              "file": "api/auth.spec.ts",
+              "line": 175,
+              "column": 3
+            },
+            {
+              "title": "[TC-057] Invalid refresh token -> 403",
+              "ok": true,
+              "tags": [
+                "auth",
+                "negative",
+                "error-code"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 336,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:03.533Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "6bead371ebbc451c1152-3ad64e4c68c71bda9eca",
+              "file": "api/auth.spec.ts",
+              "line": 187,
+              "column": 3
+            },
+            {
+              "title": "[TC-058] Missing refresh token -> 401",
+              "ok": true,
+              "tags": [
+                "auth",
+                "negative",
+                "error-code"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 316,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:03.745Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "6bead371ebbc451c1152-94d38ee86808b229d572",
+              "file": "api/auth.spec.ts",
+              "line": 194,
+              "column": 3
+            },
+            {
+              "title": "[TC-059] Protected products route with valid token",
+              "ok": true,
+              "tags": [
+                "auth",
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 312,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:03.773Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "6bead371ebbc451c1152-a3deed329a5817f4f141",
+              "file": "api/auth.spec.ts",
+              "line": 201,
+              "column": 3
+            },
+            {
+              "title": "[TC-060] Protected products route without token -> 401",
+              "ok": true,
+              "tags": [
+                "auth",
+                "negative",
+                "error-code"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 352,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:03.885Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "6bead371ebbc451c1152-879b85c6283787d4aed3",
+              "file": "api/auth.spec.ts",
+              "line": 209,
+              "column": 3
+            },
+            {
+              "title": "[TC-061] Protected products route with invalid token -> 401 (known API quirk: 500, not 401) @known-issue",
+              "ok": true,
+              "tags": [
+                "known-issue",
+                "auth",
+                "negative",
+                "error-code",
+                "known-issue"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 339,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:04.079Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "6bead371ebbc451c1152-aa5970f1f81a70e05c5b",
+              "file": "api/auth.spec.ts",
+              "line": 216,
+              "column": 3
+            },
+            {
+              "title": "[TC-062] Protected users route with valid token",
+              "ok": true,
+              "tags": [
+                "auth",
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 335,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:04.123Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "6bead371ebbc451c1152-4d08e98b6bc18ccce86c",
+              "file": "api/auth.spec.ts",
+              "line": 229,
+              "column": 3
+            },
+            {
+              "title": "[TC-063] Protected carts route with valid token",
+              "ok": true,
+              "tags": [
+                "auth",
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 302,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:04.247Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "6bead371ebbc451c1152-2908d47feb4dce868282",
+              "file": "api/auth.spec.ts",
+              "line": 236,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "api/carts.spec.ts",
+      "file": "api/carts.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Carts",
+          "file": "api/carts.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "[TC-076] List carts",
+              "ok": true,
+              "tags": [
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 353,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:04.433Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "05ae08ac2aa56f659cd5-ea7016fc8b01d121776d",
+              "file": "api/carts.spec.ts",
+              "line": 4,
+              "column": 3
+            },
+            {
+              "title": "[TC-077] Get single cart",
+              "ok": true,
+              "tags": [
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 346,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:04.470Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "05ae08ac2aa56f659cd5-980334a92bf280fcce67",
+              "file": "api/carts.spec.ts",
+              "line": 12,
+              "column": 3
+            },
+            {
+              "title": "[TC-078] Cart schema and totals consistency",
+              "ok": true,
+              "tags": [
+                "body-validation"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 361,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:04.565Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "05ae08ac2aa56f659cd5-aa7edca3dda10fc414ed",
+              "file": "api/carts.spec.ts",
+              "line": 20,
+              "column": 3
+            },
+            {
+              "title": "[TC-079] Carts for user id",
+              "ok": true,
+              "tags": [
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 340,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:04.802Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "05ae08ac2aa56f659cd5-6374c468b056d7442af0",
+              "file": "api/carts.spec.ts",
+              "line": 32,
+              "column": 3
+            },
+            {
+              "title": "[TC-080] Add cart (simulated)",
+              "ok": true,
+              "tags": [
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 339,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:04.831Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "05ae08ac2aa56f659cd5-fb4d92d94a075a971920",
+              "file": "api/carts.spec.ts",
+              "line": 41,
+              "column": 3
+            },
+            {
+              "title": "[TC-081] Merge products into cart (simulated)",
+              "ok": true,
+              "tags": [
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 323,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:04.938Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "05ae08ac2aa56f659cd5-ae2ef4a2aabb5ee5a04a",
+              "file": "api/carts.spec.ts",
+              "line": 52,
+              "column": 3
+            },
+            {
+              "title": "[TC-082] Delete cart (simulated)",
+              "ok": true,
+              "tags": [
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 323,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:05.160Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "05ae08ac2aa56f659cd5-0215400a3fb4e76a0e13",
+              "file": "api/carts.spec.ts",
+              "line": 60,
+              "column": 3
+            },
+            {
+              "title": "[TC-083] Non-existent cart -> 404",
+              "ok": true,
+              "tags": [
+                "error-code"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 332,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:05.183Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "05ae08ac2aa56f659cd5-3f8d2c07669795a105e7",
+              "file": "api/carts.spec.ts",
+              "line": 67,
+              "column": 3
+            },
+            {
+              "title": "[TC-084] Carts of non-existent user -> 404",
+              "ok": true,
+              "tags": [
+                "error-code"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 320,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:05.274Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "05ae08ac2aa56f659cd5-4d2324af103f35831645",
+              "file": "api/carts.spec.ts",
+              "line": 74,
+              "column": 3
+            },
+            {
+              "title": "[TC-085] Add cart without userId -> 400",
+              "ok": true,
+              "tags": [
+                "negative",
+                "error-code"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 333,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:05.501Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "05ae08ac2aa56f659cd5-efae6783bfc9e735ad34",
+              "file": "api/carts.spec.ts",
+              "line": 81,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "api/comments.spec.ts",
+      "file": "api/comments.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Comments",
+          "file": "api/comments.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "[TC-099] Get single comment",
+              "ok": true,
+              "tags": [
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 1352,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:05.529Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b61c786766fe6f28d375-4de26f71c300b67ca74a",
+              "file": "api/comments.spec.ts",
+              "line": 4,
+              "column": 3
+            },
+            {
+              "title": "[TC-100] Add comment (simulated)",
+              "ok": true,
+              "tags": [
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 1263,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:05.611Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b61c786766fe6f28d375-f0f06f2e0ff150fe3a95",
+              "file": "api/comments.spec.ts",
+              "line": 14,
+              "column": 3
+            },
+            {
+              "title": "[TC-101] Non-existent comment -> 404",
+              "ok": true,
+              "tags": [
+                "error-code"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1022,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:05.850Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b61c786766fe6f28d375-311dec5eb43a1711633d",
+              "file": "api/comments.spec.ts",
+              "line": 24,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "api/cross-cutting.spec.ts",
+      "file": "api/cross-cutting.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Cross-cutting",
+          "file": "api/cross-cutting.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "[TC-110] Response content-type is JSON",
+              "ok": true,
+              "tags": [
+                "status-code"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 156,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:06.896Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e0234d5a53b30d026199-e2bab25f1a45392ed87a",
+              "file": "api/cross-cutting.spec.ts",
+              "line": 4,
+              "column": 3
+            },
+            {
+              "title": "[TC-111] Repeated read is idempotent",
+              "ok": true,
+              "tags": [
+                "status-code",
+                "idempotency"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 194,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:06.898Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e0234d5a53b30d026199-09a737648bf5deea6fb4",
+              "file": "api/cross-cutting.spec.ts",
+              "line": 9,
+              "column": 3
+            },
+            {
+              "title": "[TC-112] Response time under SLA",
+              "ok": true,
+              "tags": [
+                "status-code",
+                "performance",
+                "flaky-watch"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 367,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:06.901Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e0234d5a53b30d026199-4c573441a8cb25b79d80",
+              "file": "api/cross-cutting.spec.ts",
+              "line": 19,
+              "column": 3
+            },
+            {
+              "title": "[TC-113] Last page: skip+limit beyond total clamps correctly",
+              "ok": true,
+              "tags": [
+                "body-validation"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 439,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:07.068Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e0234d5a53b30d026199-8c042a0618cd0daff105",
+              "file": "api/cross-cutting.spec.ts",
+              "line": 27,
+              "column": 3
+            },
+            {
+              "title": "[TC-114] skip beyond total returns empty array, not error",
+              "ok": true,
+              "tags": [
+                "status-code"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 404,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:07.105Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e0234d5a53b30d026199-6d8a8d968e567df5382c",
+              "file": "api/cross-cutting.spec.ts",
+              "line": 35,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "api/posts.spec.ts",
+      "file": "api/posts.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Posts",
+          "file": "api/posts.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "[TC-094] Get single post",
+              "ok": true,
+              "tags": [
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 327,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:07.281Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b5d77b6ad794936420e4-ce1ab71c495c6053776d",
+              "file": "api/posts.spec.ts",
+              "line": 4,
+              "column": 3
+            },
+            {
+              "title": "[TC-095] Search posts",
+              "ok": true,
+              "tags": [
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 349,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:07.531Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b5d77b6ad794936420e4-a8f43e7f402bd36339a0",
+              "file": "api/posts.spec.ts",
+              "line": 14,
+              "column": 3
+            },
+            {
+              "title": "[TC-096] Comments of a post",
+              "ok": true,
+              "tags": [
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 367,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:07.531Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b5d77b6ad794936420e4-e8676381f2b5b0a5ea2a",
+              "file": "api/posts.spec.ts",
+              "line": 22,
+              "column": 3
+            },
+            {
+              "title": "[TC-097] Add post (simulated)",
+              "ok": true,
+              "tags": [
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 316,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:07.621Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b5d77b6ad794936420e4-e10df4f15ccebd1de630",
+              "file": "api/posts.spec.ts",
+              "line": 37,
+              "column": 3
+            },
+            {
+              "title": "[TC-098] Non-existent post -> 404",
+              "ok": true,
+              "tags": [
+                "error-code"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 328,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:07.904Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b5d77b6ad794936420e4-20a1a4a9232f9bbfa2b4",
+              "file": "api/posts.spec.ts",
+              "line": 45,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "api/products.spec.ts",
+      "file": "api/products.spec.ts",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
           "title": "Products",
-          "file": "api/sample.spec.ts",
+          "file": "api/products.spec.ts",
           "line": 3,
           "column": 6,
           "specs": [
+            {
+              "title": "[TC-009] List products with default pagination",
+              "ok": true,
+              "tags": [
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 268,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:07.920Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dfce396d90f6eddde967-79e51c3b229805443d46",
+              "file": "api/products.spec.ts",
+              "line": 4,
+              "column": 3
+            },
+            {
+              "title": "[TC-010] Pagination with limit and skip",
+              "ok": true,
+              "tags": [
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 501,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:07.954Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dfce396d90f6eddde967-78aa865c3cceb12e56f9",
+              "file": "api/products.spec.ts",
+              "line": 15,
+              "column": 3
+            },
+            {
+              "title": "[TC-011] limit=0 returns all items",
+              "ok": true,
+              "tags": [
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 919,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:08.196Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dfce396d90f6eddde967-53d05968c48082a6cc16",
+              "file": "api/products.spec.ts",
+              "line": 25,
+              "column": 3
+            },
+            {
+              "title": "[TC-012] select returns only requested keys (plus id)",
+              "ok": true,
+              "tags": [
+                "body-validation"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 542,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:08.248Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dfce396d90f6eddde967-15aa64c749cc5b239614",
+              "file": "api/products.spec.ts",
+              "line": 32,
+              "column": 3
+            },
+            {
+              "title": "[TC-013] Multiple select params are merged",
+              "ok": true,
+              "tags": [
+                "body-validation"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 634,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:08.468Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dfce396d90f6eddde967-058365fa787c8cc0a48b",
+              "file": "api/products.spec.ts",
+              "line": 45,
+              "column": 3
+            },
+            {
+              "title": "[TC-014] Sort ascending by price",
+              "ok": true,
+              "tags": [
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 340,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:08.798Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dfce396d90f6eddde967-321ec6f7fe1cd8f1b45a",
+              "file": "api/products.spec.ts",
+              "line": 56,
+              "column": 3
+            },
+            {
+              "title": "[TC-015] Sort descending by price",
+              "ok": true,
+              "tags": [
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 309,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:09.119Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dfce396d90f6eddde967-16cccd11475ca9dc4ea8",
+              "file": "api/products.spec.ts",
+              "line": 65,
+              "column": 3
+            },
             {
               "title": "[TC-016] Get single product by id",
               "ok": true,
@@ -136,12 +2240,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1145,
+                      "duration": 148,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-11-23T15:38:40.685Z",
+                      "startTime": "2026-11-23T15:58:09.140Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -149,9 +2253,333 @@
                   "status": "expected"
                 }
               ],
-              "id": "da5fde39bc2d70264cd2-fef8eb26e0a8e2124b60",
-              "file": "api/sample.spec.ts",
-              "line": 4,
+              "id": "dfce396d90f6eddde967-5b313f0ce562e1b07761",
+              "file": "api/products.spec.ts",
+              "line": 74,
+              "column": 3
+            },
+            {
+              "title": "[TC-017] Product schema: required keys and types",
+              "ok": true,
+              "tags": [
+                "body-validation"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 134,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:09.146Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dfce396d90f6eddde967-8126053ae71e52903836",
+              "file": "api/products.spec.ts",
+              "line": 83,
+              "column": 3
+            },
+            {
+              "title": "[TC-018] Nested dimensions object shape",
+              "ok": true,
+              "tags": [
+                "body-validation"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 131,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:09.290Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dfce396d90f6eddde967-117d85369ac0993fd9b7",
+              "file": "api/products.spec.ts",
+              "line": 102,
+              "column": 3
+            },
+            {
+              "title": "[TC-019] Review items shape",
+              "ok": true,
+              "tags": [
+                "body-validation"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 123,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:09.300Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dfce396d90f6eddde967-8091b50c5cd89137fed1",
+              "file": "api/products.spec.ts",
+              "line": 110,
+              "column": 3
+            },
+            {
+              "title": "[TC-020] Search products by keyword",
+              "ok": true,
+              "tags": [
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 334,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:09.429Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dfce396d90f6eddde967-c252329f6d5f4dbcfa91",
+              "file": "api/products.spec.ts",
+              "line": 122,
+              "column": 3
+            },
+            {
+              "title": "[TC-021] Search with no matches returns empty list, not error",
+              "ok": true,
+              "tags": [
+                "negative"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 317,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:09.431Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dfce396d90f6eddde967-246c1da118045d16fddf",
+              "file": "api/products.spec.ts",
+              "line": 133,
+              "column": 3
+            },
+            {
+              "title": "[TC-022] List categories as objects",
+              "ok": true,
+              "tags": [
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 531,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:09.442Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dfce396d90f6eddde967-3c2fabd3e6d2fc83bbfc",
+              "file": "api/products.spec.ts",
+              "line": 141,
+              "column": 3
+            },
+            {
+              "title": "[TC-023] List category slugs as strings",
+              "ok": true,
+              "tags": [
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 321,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:09.762Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dfce396d90f6eddde967-ace5177e7cb2fb564093",
+              "file": "api/products.spec.ts",
+              "line": 154,
+              "column": 3
+            },
+            {
+              "title": "[TC-024] Products filtered by category",
+              "ok": true,
+              "tags": [
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 331,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:09.774Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dfce396d90f6eddde967-5762f711a2bb028d045f",
+              "file": "api/products.spec.ts",
+              "line": 165,
+              "column": 3
+            },
+            {
+              "title": "[TC-025] Unknown category returns empty list (200)",
+              "ok": true,
+              "tags": [
+                "negative"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 347,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:09.980Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dfce396d90f6eddde967-acc5dd2e99f5a1d660bc",
+              "file": "api/products.spec.ts",
+              "line": 175,
               "column": 3
             },
             {
@@ -169,15 +2597,15 @@
                   "projectName": "api",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1149,
+                      "duration": 305,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-11-23T15:38:40.677Z",
+                      "startTime": "2026-11-23T15:58:10.095Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -185,25 +2613,16 @@
                   "status": "expected"
                 }
               ],
-              "id": "da5fde39bc2d70264cd2-7bb194d0b34363be254a",
-              "file": "api/sample.spec.ts",
-              "line": 13,
+              "id": "dfce396d90f6eddde967-ead884175c314de88660",
+              "file": "api/products.spec.ts",
+              "line": 183,
               "column": 3
-            }
-          ]
-        },
-        {
-          "title": "Auth",
-          "file": "api/sample.spec.ts",
-          "line": 20,
-          "column": 6,
-          "specs": [
+            },
             {
-              "title": "[TC-051] Missing token -> 401",
+              "title": "[TC-027] Non-numeric product id -> 404",
               "ok": true,
               "tags": [
-                "auth",
-                "negative"
+                "error-code"
               ],
               "tests": [
                 {
@@ -217,12 +2636,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1150,
+                      "duration": 319,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-11-23T15:38:40.661Z",
+                      "startTime": "2026-11-23T15:58:10.112Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -230,16 +2649,16 @@
                   "status": "expected"
                 }
               ],
-              "id": "da5fde39bc2d70264cd2-13624b5ad4fc26fd4e2f",
-              "file": "api/sample.spec.ts",
-              "line": 21,
+              "id": "dfce396d90f6eddde967-0f46e89ccfbbcd8d7f1a",
+              "file": "api/products.spec.ts",
+              "line": 191,
               "column": 3
             },
             {
-              "title": "[TC-049] Valid token returns current user",
+              "title": "[TC-028] Invalid limit type -> 400",
               "ok": true,
               "tags": [
-                "auth"
+                "error-code"
               ],
               "tests": [
                 {
@@ -253,12 +2672,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 383,
+                      "duration": 327,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-11-23T15:38:40.676Z",
+                      "startTime": "2026-11-23T15:58:10.334Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -266,9 +2685,1754 @@
                   "status": "expected"
                 }
               ],
-              "id": "da5fde39bc2d70264cd2-3f54eb83a16aeeb58266",
-              "file": "api/sample.spec.ts",
+              "id": "dfce396d90f6eddde967-6b9cb05954069bd1e4a5",
+              "file": "api/products.spec.ts",
+              "line": 198,
+              "column": 3
+            },
+            {
+              "title": "[TC-029] Negative limit -> 400",
+              "ok": true,
+              "tags": [
+                "error-code"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 316,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:10.410Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dfce396d90f6eddde967-f8196f890d0db37d578e",
+              "file": "api/products.spec.ts",
+              "line": 205,
+              "column": 3
+            },
+            {
+              "title": "[TC-030] Negative skip -> 400",
+              "ok": true,
+              "tags": [
+                "error-code"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 345,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:10.448Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dfce396d90f6eddde967-357f0af6edbf64f14f80",
+              "file": "api/products.spec.ts",
+              "line": 212,
+              "column": 3
+            },
+            {
+              "title": "[TC-031] Add product (simulated, not persisted)",
+              "ok": true,
+              "tags": [
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 334,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:10.674Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dfce396d90f6eddde967-a9418a5ff4a6d9c4555c",
+              "file": "api/products.spec.ts",
+              "line": 219,
+              "column": 3
+            },
+            {
+              "title": "[TC-032] Add product with empty body still creates stub",
+              "ok": true,
+              "tags": [
+                "negative"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 323,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:10.738Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dfce396d90f6eddde967-16b0ad2f56622cf80075",
+              "file": "api/products.spec.ts",
+              "line": 228,
+              "column": 3
+            },
+            {
+              "title": "[TC-033] Update product title (simulated)",
+              "ok": true,
+              "tags": [
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 329,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:10.814Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dfce396d90f6eddde967-e871ec1a23420b0e9c2f",
+              "file": "api/products.spec.ts",
+              "line": 235,
+              "column": 3
+            },
+            {
+              "title": "[TC-034] Partial update product price (simulated)",
+              "ok": true,
+              "tags": [
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 319,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:11.020Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dfce396d90f6eddde967-cf5a15298fc660255970",
+              "file": "api/products.spec.ts",
+              "line": 244,
+              "column": 3
+            },
+            {
+              "title": "[TC-035] Update non-existent product -> 404",
+              "ok": true,
+              "tags": [
+                "error-code"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 329,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:11.084Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dfce396d90f6eddde967-49182117b804cd4474fa",
+              "file": "api/products.spec.ts",
+              "line": 252,
+              "column": 3
+            },
+            {
+              "title": "[TC-036] Delete product (simulated)",
+              "ok": true,
+              "tags": [
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 328,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:11.185Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dfce396d90f6eddde967-af93bd90ff4f96e64194",
+              "file": "api/products.spec.ts",
+              "line": 259,
+              "column": 3
+            },
+            {
+              "title": "[TC-037] Delete non-existent product -> 404",
+              "ok": true,
+              "tags": [
+                "error-code"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 361,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:11.350Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dfce396d90f6eddde967-edb80f5ef8d3c4974ae1",
+              "file": "api/products.spec.ts",
+              "line": 268,
+              "column": 3
+            },
+            {
+              "title": "[TC-038] Delete is simulated: product still exists afterwards",
+              "ok": true,
+              "tags": [
+                "body-validation",
+                "idempotency"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 149,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:11.423Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dfce396d90f6eddde967-a4ff0364bda94bed71ce",
+              "file": "api/products.spec.ts",
+              "line": 275,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "api/quotes.spec.ts",
+      "file": "api/quotes.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Quotes",
+          "file": "api/quotes.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "[TC-102] Get single quote",
+              "ok": true,
+              "tags": [
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 325,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:11.526Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "29df76dfc33f52cc1b2d-945170aee37835e0310c",
+              "file": "api/quotes.spec.ts",
+              "line": 4,
+              "column": 3
+            },
+            {
+              "title": "[TC-103] Random quote",
+              "ok": true,
+              "tags": [
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 323,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:11.587Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "29df76dfc33f52cc1b2d-c9e0b58096b141d826d6",
+              "file": "api/quotes.spec.ts",
+              "line": 13,
+              "column": 3
+            },
+            {
+              "title": "[TC-104] Non-existent quote -> 404",
+              "ok": true,
+              "tags": [
+                "error-code"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 342,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:11.726Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "29df76dfc33f52cc1b2d-408ff3a5a6b742450de4",
+              "file": "api/quotes.spec.ts",
+              "line": 22,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "api/recipes.spec.ts",
+      "file": "api/recipes.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Recipes",
+          "file": "api/recipes.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "[TC-105] Recipe schema",
+              "ok": true,
+              "tags": [
+                "body-validation"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 325,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:11.865Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "94b138d5274cde7cc045-32cdfe7ad11b8dc1ba6a",
+              "file": "api/recipes.spec.ts",
+              "line": 4,
+              "column": 3
+            },
+            {
+              "title": "[TC-106] Search recipes",
+              "ok": true,
+              "tags": [
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 329,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:11.930Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "94b138d5274cde7cc045-11cb8b0650748d2c210e",
+              "file": "api/recipes.spec.ts",
+              "line": 20,
+              "column": 3
+            },
+            {
+              "title": "[TC-107] List recipe tags",
+              "ok": true,
+              "tags": [
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 363,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:12.079Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "94b138d5274cde7cc045-40f8ec2264f3d0b0b115",
+              "file": "api/recipes.spec.ts",
               "line": 27,
+              "column": 3
+            },
+            {
+              "title": "[TC-108] Recipes by meal type",
+              "ok": true,
+              "tags": [
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 325,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:12.200Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "94b138d5274cde7cc045-c51e3f7f15e3b626479f",
+              "file": "api/recipes.spec.ts",
+              "line": 36,
+              "column": 3
+            },
+            {
+              "title": "[TC-109] Non-existent recipe -> 404",
+              "ok": true,
+              "tags": [
+                "error-code"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 341,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:12.266Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "94b138d5274cde7cc045-4e234e64f29a9759c80f",
+              "file": "api/recipes.spec.ts",
+              "line": 45,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "api/system.spec.ts",
+      "file": "api/system.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "System",
+          "file": "api/system.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "[TC-001] Test route responds for GET",
+              "ok": true,
+              "tags": [
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 313,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:12.451Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "af9ec0cbb9f6ed2bc4b0-cfc98c73560680985e82",
+              "file": "api/system.spec.ts",
+              "line": 4,
+              "column": 3
+            },
+            {
+              "title": "[TC-002] Test route echoes POST method",
+              "ok": true,
+              "tags": [
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 314,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:12.534Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "af9ec0cbb9f6ed2bc4b0-24288b7499d3374e851f",
+              "file": "api/system.spec.ts",
+              "line": 13,
+              "column": 3
+            },
+            {
+              "title": "[TC-003] Test route echoes PUT method",
+              "ok": true,
+              "tags": [
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 348,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:12.615Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "af9ec0cbb9f6ed2bc4b0-2decc0ff99e020b0c0c9",
+              "file": "api/system.spec.ts",
+              "line": 21,
+              "column": 3
+            },
+            {
+              "title": "[TC-004] Returns client IP and user agent",
+              "ok": true,
+              "tags": [
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 317,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:12.776Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "af9ec0cbb9f6ed2bc4b0-c12bebb4a6225b712e1d",
+              "file": "api/system.spec.ts",
+              "line": 28,
+              "column": 3
+            },
+            {
+              "title": "[TC-005] OpenAPI 3.0 document is downloadable and valid",
+              "ok": true,
+              "tags": [
+                "body-validation"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 347,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:12.856Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "af9ec0cbb9f6ed2bc4b0-a3f8b18237aa348431ae",
+              "file": "api/system.spec.ts",
+              "line": 37,
+              "column": 3
+            },
+            {
+              "title": "[TC-006] Unknown route returns 404",
+              "ok": true,
+              "tags": [
+                "negative",
+                "error-code"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 319,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:12.973Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "af9ec0cbb9f6ed2bc4b0-f02d8376e7a55868175b",
+              "file": "api/system.spec.ts",
+              "line": 47,
+              "column": 3
+            },
+            {
+              "title": "[TC-007] delay param postpones response by >=1000ms",
+              "ok": true,
+              "tags": [
+                "happy",
+                "timing"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 1347,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:13.102Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "af9ec0cbb9f6ed2bc4b0-f2be78a8dfe3639e0c94",
+              "file": "api/system.spec.ts",
+              "line": 54,
+              "column": 3
+            },
+            {
+              "title": "[TC-008] delay=0 returns without artificial delay",
+              "ok": true,
+              "tags": [
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 342,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:13.210Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "af9ec0cbb9f6ed2bc4b0-977f9a9e70cc41a471e3",
+              "file": "api/system.spec.ts",
+              "line": 64,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "api/todos.spec.ts",
+      "file": "api/todos.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Todos",
+          "file": "api/todos.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "[TC-086] Get single todo",
+              "ok": true,
+              "tags": [
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 332,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:13.301Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1962bc0e05349d5dd4a5-2636a41733dd3d78fcb8",
+              "file": "api/todos.spec.ts",
+              "line": 4,
+              "column": 3
+            },
+            {
+              "title": "[TC-087] Random todo",
+              "ok": true,
+              "tags": [
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 620,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:13.563Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1962bc0e05349d5dd4a5-3ff4fa6e559acc3f3ae7",
+              "file": "api/todos.spec.ts",
+              "line": 14,
+              "column": 3
+            },
+            {
+              "title": "[TC-088] Todos by user",
+              "ok": true,
+              "tags": [
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 318,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:13.640Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1962bc0e05349d5dd4a5-97861540f812d76059a8",
+              "file": "api/todos.spec.ts",
+              "line": 24,
+              "column": 3
+            },
+            {
+              "title": "[TC-089] Add todo (simulated)",
+              "ok": true,
+              "tags": [
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 322,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:13.967Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1962bc0e05349d5dd4a5-82cb06350772f9abd823",
+              "file": "api/todos.spec.ts",
+              "line": 34,
+              "column": 3
+            },
+            {
+              "title": "[TC-090] Add todo without userId -> 400",
+              "ok": true,
+              "tags": [
+                "negative",
+                "error-code"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 378,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:14.218Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1962bc0e05349d5dd4a5-aba1fa3963ce87f727a8",
+              "file": "api/todos.spec.ts",
+              "line": 45,
+              "column": 3
+            },
+            {
+              "title": "[TC-091] Update todo completed flag (simulated)",
+              "ok": true,
+              "tags": [
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 320,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:14.301Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1962bc0e05349d5dd4a5-9155064c95d7375da61b",
+              "file": "api/todos.spec.ts",
+              "line": 52,
+              "column": 3
+            },
+            {
+              "title": "[TC-092] Delete todo (simulated)",
+              "ok": true,
+              "tags": [
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 319,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:14.464Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1962bc0e05349d5dd4a5-28c664c7766d17d34b7f",
+              "file": "api/todos.spec.ts",
+              "line": 60,
+              "column": 3
+            },
+            {
+              "title": "[TC-093] Non-existent todo -> 404",
+              "ok": true,
+              "tags": [
+                "error-code"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 411,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:14.625Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1962bc0e05349d5dd4a5-03752e845d77537c803d",
+              "file": "api/todos.spec.ts",
+              "line": 67,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "api/users.spec.ts",
+      "file": "api/users.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Users",
+          "file": "api/users.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "[TC-064] List users default pagination",
+              "ok": true,
+              "tags": [
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 190,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:14.683Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "fe1b24ca564ee32ce980-8564da5674a056c0453b",
+              "file": "api/users.spec.ts",
+              "line": 4,
+              "column": 3
+            },
+            {
+              "title": "[TC-065] Get single user",
+              "ok": true,
+              "tags": [
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 337,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:14.814Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "fe1b24ca564ee32ce980-566bf7f8b862293f4ea0",
+              "file": "api/users.spec.ts",
+              "line": 13,
+              "column": 3
+            },
+            {
+              "title": "[TC-066] User schema and nested objects",
+              "ok": true,
+              "tags": [
+                "body-validation"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 378,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:14.929Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "fe1b24ca564ee32ce980-d18e0cdff0d0d42b7a5b",
+              "file": "api/users.spec.ts",
+              "line": 22,
+              "column": 3
+            },
+            {
+              "title": "[TC-067] Search users by name",
+              "ok": true,
+              "tags": [
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 327,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:15.064Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "fe1b24ca564ee32ce980-493f8b5e59204d3aedf0",
+              "file": "api/users.spec.ts",
+              "line": 40,
+              "column": 3
+            },
+            {
+              "title": "[TC-068] Filter users by nested key",
+              "ok": true,
+              "tags": [
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 328,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:15.175Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "fe1b24ca564ee32ce980-1d0dfefe9ad4a7a536b8",
+              "file": "api/users.spec.ts",
+              "line": 51,
+              "column": 3
+            },
+            {
+              "title": "[TC-069] Sort users by age ascending",
+              "ok": true,
+              "tags": [
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 355,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:15.329Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "fe1b24ca564ee32ce980-8b2e1afd5da73c54d24c",
+              "file": "api/users.spec.ts",
+              "line": 61,
+              "column": 3
+            },
+            {
+              "title": "[TC-070] Users select projection",
+              "ok": true,
+              "tags": [
+                "body-validation"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 309,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:15.407Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "fe1b24ca564ee32ce980-171c6dcb20b926402d0c",
+              "file": "api/users.spec.ts",
+              "line": 69,
+              "column": 3
+            },
+            {
+              "title": "[TC-071] Non-existent user -> 404",
+              "ok": true,
+              "tags": [
+                "error-code"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 311,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:15.511Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "fe1b24ca564ee32ce980-a9d5bdae2179c44e69b7",
+              "file": "api/users.spec.ts",
+              "line": 80,
+              "column": 3
+            },
+            {
+              "title": "[TC-072] Non-numeric user id -> 400",
+              "ok": true,
+              "tags": [
+                "error-code"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 916,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:15.703Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "fe1b24ca564ee32ce980-29823ea35fccb4570151",
+              "file": "api/users.spec.ts",
+              "line": 87,
+              "column": 3
+            },
+            {
+              "title": "[TC-073] Add user (simulated)",
+              "ok": true,
+              "tags": [
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 907,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:15.727Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "fe1b24ca564ee32ce980-0a30f7b0a6abc81c43af",
+              "file": "api/users.spec.ts",
+              "line": 94,
+              "column": 3
+            },
+            {
+              "title": "[TC-074] Update user last name (simulated)",
+              "ok": true,
+              "tags": [
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 855,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:15.833Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "fe1b24ca564ee32ce980-7dc75be079a41157f3bc",
+              "file": "api/users.spec.ts",
+              "line": 104,
+              "column": 3
+            },
+            {
+              "title": "[TC-075] Delete user (simulated)",
+              "ok": true,
+              "tags": [
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 399,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:58:16.741Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "fe1b24ca564ee32ce980-8dbf4b4908274f2f9019",
+              "file": "api/users.spec.ts",
+              "line": 112,
               "column": 3
             }
           ]
@@ -278,9 +4442,9 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-11-23T15:38:40.142Z",
-    "duration": 2177.655,
-    "expected": 4,
+    "startTime": "2026-11-23T15:58:00.989Z",
+    "duration": 68349.185,
+    "expected": 114,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0
