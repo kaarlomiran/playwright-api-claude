@@ -1,7 +1,7 @@
 import { test, expect } from '../../src/fixtures/auth';
 
 test.describe('Products', () => {
-  test('[TC-009] List products with default pagination', { tag: ['@happy'] }, async ({ request }) => {
+  test('[TC-009] List products with default pagination', { tag: ['@happy', '@smoke'] }, async ({ request }) => {
     const res = await request.get('/products');
     expect(res.status()).toBe(200);
     const body = await res.json();

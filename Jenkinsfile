@@ -9,6 +9,11 @@
 pipeline {
   agent any
 
+  parameters {
+    string(name: 'TAG', defaultValue: '@smoke',
+           description: 'Playwright --grep filter. @smoke = merge gate; use @happy, @auth, etc. for other slices; leave EMPTY to run the full suite.')
+  }
+
   options {
     timestamps()
     timeout(time: 20, unit: 'MINUTES')
@@ -20,6 +25,7 @@ pipeline {
     PATH = "/opt/homebrew/bin:${env.PATH}"
     CI = 'true'
     BASE_URL = 'https://dummyjson.com'
+    TAG = "${params.TAG ?: ''}"
   }
 
   stages {
@@ -36,7 +42,16 @@ pipeline {
       }
     }
     stage('Install') { steps { sh 'npm ci' } }
-    stage('API tests') { steps { sh 'npx playwright test' } }
+    stage('API tests') {
+      steps {
+        script {
+          def tag = (params.TAG ?: '').trim()
+          echo tag ? "Running tests matching: ${tag}" : 'Running FULL suite'
+        }
+        // TAG passed via env to avoid shell-quoting/injection issues.
+        sh 'if [ -n "$TAG" ]; then npx playwright test --grep "$TAG"; else npx playwright test; fi'
+      }
+    }
   }
 
   post {
@@ -45,7 +60,7 @@ pipeline {
       junit allowEmptyResults: true, testResults: 'reports/junit.xml'
       publishHTML(target: [reportDir: 'reports/html', reportFiles: 'index.html',
                             reportName: 'Playwright Report', keepAll: true, alwaysLinkToLastBuild: true])
-      archiveArtifacts artifacts: 'reports/**', allowEmptyArchive: true
+      archiveArtifacts artifacts: 'reports/**, test-results/**/trace.zip', allowEmptyArchive: true
     }
   }
 }

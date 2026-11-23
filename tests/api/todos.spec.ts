@@ -1,7 +1,7 @@
 import { test, expect } from '../../src/fixtures/auth';
 
 test.describe('Todos', () => {
-  test('[TC-086] Get single todo', { tag: ['@happy'] }, async ({ request }) => {
+  test('[TC-086] Get single todo', { tag: ['@happy', '@smoke'] }, async ({ request }) => {
     const res = await request.get('/todos/1');
     expect(res.status()).toBe(200);
     const body = await res.json();

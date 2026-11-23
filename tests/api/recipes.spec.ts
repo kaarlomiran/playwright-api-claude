@@ -17,7 +17,7 @@ test.describe('Recipes', () => {
     expect(['Easy', 'Medium', 'Hard']).toContain(body.difficulty);
   });
 
-  test('[TC-106] Search recipes', { tag: ['@happy'] }, async ({ request }) => {
+  test('[TC-106] Search recipes', { tag: ['@happy', '@smoke'] }, async ({ request }) => {
     const res = await request.get('/recipes/search?q=pizza&limit=3');
     expect(res.status()).toBe(200);
     const body = await res.json();

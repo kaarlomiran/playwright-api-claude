@@ -1,7 +1,7 @@
 import { test, expect } from '../../src/fixtures/auth';
 
 test.describe('Comments', () => {
-  test('[TC-099] Get single comment', { tag: ['@happy'] }, async ({ request }) => {
+  test('[TC-099] Get single comment', { tag: ['@happy', '@smoke'] }, async ({ request }) => {
     const res = await request.get('/comments/1');
     expect(res.status()).toBe(200);
     const body = await res.json();

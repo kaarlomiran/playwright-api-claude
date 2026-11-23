@@ -1,7 +1,7 @@
 import { test, expect } from '../../src/fixtures/auth';
 
 test.describe('Carts', () => {
-  test('[TC-076] List carts', { tag: ['@happy'] }, async ({ request }) => {
+  test('[TC-076] List carts', { tag: ['@happy', '@smoke'] }, async ({ request }) => {
     const res = await request.get('/carts');
     expect(res.status()).toBe(200);
     const body = await res.json();
