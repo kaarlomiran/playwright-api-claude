@@ -1,0 +1,2320 @@
+{
+  "baseUrl": "https://dummyjson.com",
+  "total": 114,
+  "credentials": {
+    "username": "emilys",
+    "password": "emilyspass"
+  },
+  "cases": [
+    {
+      "module": "System",
+      "category": "HAPPY",
+      "method": "GET",
+      "endpoint": "/test",
+      "description": "Test route responds for GET",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "{\"status\":\"ok\",\"method\":\"GET\"}",
+      "assertions": [
+        "status==200",
+        "body.status=='ok'",
+        "body.method=='GET'",
+        "header content-type contains application/json"
+      ],
+      "tags": [
+        "happy"
+      ],
+      "id": "TC-001"
+    },
+    {
+      "module": "System",
+      "category": "HAPPY",
+      "method": "POST",
+      "endpoint": "/test",
+      "description": "Test route echoes POST method",
+      "auth": "none",
+      "request_body": "{}",
+      "expected_status": 200,
+      "response_body": "{\"status\":\"ok\",\"method\":\"POST\"}",
+      "assertions": [
+        "status==200",
+        "body.status=='ok'",
+        "body.method=='POST'"
+      ],
+      "tags": [
+        "happy"
+      ],
+      "id": "TC-002"
+    },
+    {
+      "module": "System",
+      "category": "HAPPY",
+      "method": "PUT",
+      "endpoint": "/test",
+      "description": "Test route echoes PUT method",
+      "auth": "none",
+      "request_body": "{}",
+      "expected_status": 200,
+      "response_body": "{\"status\":\"ok\",\"method\":\"PUT\"}",
+      "assertions": [
+        "status==200",
+        "body.method=='PUT'"
+      ],
+      "tags": [
+        "happy"
+      ],
+      "id": "TC-003"
+    },
+    {
+      "module": "System",
+      "category": "HAPPY",
+      "method": "GET",
+      "endpoint": "/ip",
+      "description": "Returns client IP and user agent",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "{\"ip\":\"<string>\",\"userAgent\":\"<string>\"}",
+      "assertions": [
+        "status==200",
+        "typeof body.ip=='string' and non-empty",
+        "typeof body.userAgent=='string'"
+      ],
+      "tags": [
+        "happy"
+      ],
+      "id": "TC-004"
+    },
+    {
+      "module": "System",
+      "category": "BODY-VALIDATION",
+      "method": "GET",
+      "endpoint": "/openapi.json",
+      "description": "OpenAPI 3.0 document is downloadable and valid",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "{\"openapi\":\"3.0.x\",\"info\":{},\"paths\":{}}",
+      "assertions": [
+        "status==200",
+        "body.openapi startsWith '3.'",
+        "Object.keys(body.paths).length>0",
+        "paths contains '/products' and '/auth/login'"
+      ],
+      "tags": [
+        "body-validation"
+      ],
+      "id": "TC-005"
+    },
+    {
+      "module": "System",
+      "category": "NEGATIVE",
+      "method": "GET",
+      "endpoint": "/this-route-does-not-exist",
+      "description": "Unknown route returns 404",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 404,
+      "response_body": "HTML or error page (not JSON API payload)",
+      "assertions": [
+        "status==404",
+        "response is not a successful JSON resource"
+      ],
+      "tags": [
+        "negative",
+        "error-code"
+      ],
+      "id": "TC-006"
+    },
+    {
+      "module": "System",
+      "category": "HAPPY",
+      "method": "GET",
+      "endpoint": "/test?delay=1000",
+      "description": "delay param postpones response by >=1000ms",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "{\"status\":\"ok\",\"method\":\"GET\"}",
+      "assertions": [
+        "status==200",
+        "elapsed >= 950ms (allow jitter)",
+        "body.status=='ok'"
+      ],
+      "tags": [
+        "happy",
+        "timing"
+      ],
+      "id": "TC-007"
+    },
+    {
+      "module": "System",
+      "category": "HAPPY",
+      "method": "GET",
+      "endpoint": "/products/1?delay=0",
+      "description": "delay=0 returns without artificial delay",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "Product 1 object",
+      "assertions": [
+        "status==200",
+        "body.id==1"
+      ],
+      "tags": [
+        "happy"
+      ],
+      "id": "TC-008"
+    },
+    {
+      "module": "Products",
+      "category": "HAPPY",
+      "method": "GET",
+      "endpoint": "/products",
+      "description": "List products with default pagination",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "{\"products\":[...30],\"total\":194,\"skip\":0,\"limit\":30}",
+      "assertions": [
+        "status==200",
+        "Array.isArray(body.products)",
+        "body.products.length<=30",
+        "body.skip==0",
+        "body.limit==30",
+        "body.total>=body.products.length"
+      ],
+      "tags": [
+        "happy"
+      ],
+      "id": "TC-009"
+    },
+    {
+      "module": "Products",
+      "category": "HAPPY",
+      "method": "GET",
+      "endpoint": "/products?limit=5&skip=10",
+      "description": "Pagination with limit and skip",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "{\"products\":[5 items],\"total\":N,\"skip\":10,\"limit\":5}",
+      "assertions": [
+        "status==200",
+        "body.products.length==5",
+        "body.skip==10",
+        "body.limit==5",
+        "body.products[0].id==11"
+      ],
+      "tags": [
+        "happy"
+      ],
+      "id": "TC-010"
+    },
+    {
+      "module": "Products",
+      "category": "HAPPY",
+      "method": "GET",
+      "endpoint": "/products?limit=0",
+      "description": "limit=0 returns all items",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "{\"products\":[all],\"total\":N,\"skip\":0,\"limit\":N}",
+      "assertions": [
+        "status==200",
+        "body.products.length==body.total"
+      ],
+      "tags": [
+        "happy"
+      ],
+      "id": "TC-011"
+    },
+    {
+      "module": "Products",
+      "category": "BODY-VALIDATION",
+      "method": "GET",
+      "endpoint": "/products?limit=3&select=title,price",
+      "description": "select returns only requested keys (plus id)",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "{\"products\":[{\"id\":1,\"title\":\"..\",\"price\":9.99}],...}",
+      "assertions": [
+        "status==200",
+        "each product has title and price",
+        "each product has NO description/category",
+        "body.products.length==3"
+      ],
+      "tags": [
+        "body-validation"
+      ],
+      "id": "TC-012"
+    },
+    {
+      "module": "Products",
+      "category": "BODY-VALIDATION",
+      "method": "GET",
+      "endpoint": "/products?limit=2&select=title&select=price",
+      "description": "Multiple select params are merged",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "{\"products\":[{\"id\":1,\"title\":\"..\",\"price\":9.99}],...}",
+      "assertions": [
+        "status==200",
+        "each product has title and price",
+        "no description key"
+      ],
+      "tags": [
+        "body-validation"
+      ],
+      "id": "TC-013"
+    },
+    {
+      "module": "Products",
+      "category": "HAPPY",
+      "method": "GET",
+      "endpoint": "/products?sortBy=price&order=asc&limit=10",
+      "description": "Sort ascending by price",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "{\"products\":[10 items sorted],...}",
+      "assertions": [
+        "status==200",
+        "prices array equals sorted ascending copy"
+      ],
+      "tags": [
+        "happy"
+      ],
+      "id": "TC-014"
+    },
+    {
+      "module": "Products",
+      "category": "HAPPY",
+      "method": "GET",
+      "endpoint": "/products?sortBy=price&order=desc&limit=10",
+      "description": "Sort descending by price",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "{\"products\":[10 items sorted],...}",
+      "assertions": [
+        "status==200",
+        "prices array equals sorted descending copy"
+      ],
+      "tags": [
+        "happy"
+      ],
+      "id": "TC-015"
+    },
+    {
+      "module": "Products",
+      "category": "HAPPY",
+      "method": "GET",
+      "endpoint": "/products/1",
+      "description": "Get single product by id",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "Product object id=1",
+      "assertions": [
+        "status==200",
+        "body.id==1",
+        "typeof body.title=='string'",
+        "typeof body.price=='number'"
+      ],
+      "tags": [
+        "happy"
+      ],
+      "id": "TC-016"
+    },
+    {
+      "module": "Products",
+      "category": "BODY-VALIDATION",
+      "method": "GET",
+      "endpoint": "/products/1",
+      "description": "Product schema: required keys and types",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "Keys: id,title,description,category,price,discountPercentage,rating,stock,tags,sku,weight,dimensions,reviews,images,thumbnail",
+      "assertions": [
+        "status==200",
+        "body has all keys: id,title,description,category,price,discountPercentage,rating,stock,tags,sku,weight,dimensions,reviews,images,thumbnail",
+        "Array.isArray(tags) && Array.isArray(images) && Array.isArray(reviews)",
+        "rating between 0 and 5",
+        "stock is integer >=0",
+        "thumbnail is http(s) URL"
+      ],
+      "tags": [
+        "body-validation"
+      ],
+      "id": "TC-017"
+    },
+    {
+      "module": "Products",
+      "category": "BODY-VALIDATION",
+      "method": "GET",
+      "endpoint": "/products/1",
+      "description": "Nested dimensions object shape",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "{\"dimensions\":{\"width\":n,\"height\":n,\"depth\":n}}",
+      "assertions": [
+        "dimensions.width/height/depth are numbers >0"
+      ],
+      "tags": [
+        "body-validation"
+      ],
+      "id": "TC-018"
+    },
+    {
+      "module": "Products",
+      "category": "BODY-VALIDATION",
+      "method": "GET",
+      "endpoint": "/products/1",
+      "description": "Review items shape",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "{\"reviews\":[{\"rating\":n,\"comment\":\"..\",\"date\":\"ISO\",\"reviewerName\":\"..\",\"reviewerEmail\":\"..\"}]}",
+      "assertions": [
+        "reviews.length>0",
+        "each review.rating in 1..5",
+        "review.date parses as valid Date",
+        "reviewerEmail matches /^\\S+@\\S+$/"
+      ],
+      "tags": [
+        "body-validation"
+      ],
+      "id": "TC-019"
+    },
+    {
+      "module": "Products",
+      "category": "HAPPY",
+      "method": "GET",
+      "endpoint": "/products/search?q=phone",
+      "description": "Search products by keyword",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "{\"products\":[...],\"total\":N,\"skip\":0,\"limit\":N}",
+      "assertions": [
+        "status==200",
+        "body.total>0",
+        "every product title/description/tags/brand contains 'phone' (case-insens.) OR search hit"
+      ],
+      "tags": [
+        "happy"
+      ],
+      "id": "TC-020"
+    },
+    {
+      "module": "Products",
+      "category": "NEGATIVE",
+      "method": "GET",
+      "endpoint": "/products/search?q=zzzzqqqq9999",
+      "description": "Search with no matches returns empty list, not error",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "{\"products\":[],\"total\":0,\"skip\":0,\"limit\":0}",
+      "assertions": [
+        "status==200",
+        "body.products.length==0",
+        "body.total==0"
+      ],
+      "tags": [
+        "negative"
+      ],
+      "id": "TC-021"
+    },
+    {
+      "module": "Products",
+      "category": "HAPPY",
+      "method": "GET",
+      "endpoint": "/products/categories",
+      "description": "List categories as objects",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "[{\"slug\":\"beauty\",\"name\":\"Beauty\",\"url\":\"https://dummyjson.com/products/category/beauty\"},...]",
+      "assertions": [
+        "status==200",
+        "Array.isArray(body)",
+        "each item has slug,name,url",
+        "url endsWith '/products/category/'+slug"
+      ],
+      "tags": [
+        "happy"
+      ],
+      "id": "TC-022"
+    },
+    {
+      "module": "Products",
+      "category": "HAPPY",
+      "method": "GET",
+      "endpoint": "/products/category-list",
+      "description": "List category slugs as strings",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "[\"beauty\",\"fragrances\",...]",
+      "assertions": [
+        "status==200",
+        "every item is string",
+        "includes 'smartphones'",
+        "no duplicates"
+      ],
+      "tags": [
+        "happy"
+      ],
+      "id": "TC-023"
+    },
+    {
+      "module": "Products",
+      "category": "HAPPY",
+      "method": "GET",
+      "endpoint": "/products/category/smartphones",
+      "description": "Products filtered by category",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "{\"products\":[...],\"total\":N,...}",
+      "assertions": [
+        "status==200",
+        "every product.category=='smartphones'",
+        "body.total>0"
+      ],
+      "tags": [
+        "happy"
+      ],
+      "id": "TC-024"
+    },
+    {
+      "module": "Products",
+      "category": "NEGATIVE",
+      "method": "GET",
+      "endpoint": "/products/category/invalidcat",
+      "description": "Unknown category returns empty list (200)",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "{\"products\":[],\"total\":0,...}",
+      "assertions": [
+        "status==200",
+        "body.products.length==0",
+        "body.total==0"
+      ],
+      "tags": [
+        "negative"
+      ],
+      "id": "TC-025"
+    },
+    {
+      "module": "Products",
+      "category": "ERROR-CODE",
+      "method": "GET",
+      "endpoint": "/products/999999",
+      "description": "Non-existent product id -> 404",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 404,
+      "response_body": "{\"message\":\"Product with id '999999' not found\"}",
+      "assertions": [
+        "status==404",
+        "body.message contains 'not found'",
+        "body.message contains '999999'"
+      ],
+      "tags": [
+        "error-code"
+      ],
+      "id": "TC-026"
+    },
+    {
+      "module": "Products",
+      "category": "ERROR-CODE",
+      "method": "GET",
+      "endpoint": "/products/abc",
+      "description": "Non-numeric product id -> 404",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 404,
+      "response_body": "{\"message\":\"Product with id 'abc' not found\"}",
+      "assertions": [
+        "status==404",
+        "body.message contains 'abc'"
+      ],
+      "tags": [
+        "error-code"
+      ],
+      "id": "TC-027"
+    },
+    {
+      "module": "Products",
+      "category": "ERROR-CODE",
+      "method": "GET",
+      "endpoint": "/products?limit=abc",
+      "description": "Invalid limit type -> 400",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 400,
+      "response_body": "{\"message\":\"Invalid 'limit' - should be a positive number\"}",
+      "assertions": [
+        "status==400",
+        "body.message contains 'limit'"
+      ],
+      "tags": [
+        "error-code"
+      ],
+      "id": "TC-028"
+    },
+    {
+      "module": "Products",
+      "category": "ERROR-CODE",
+      "method": "GET",
+      "endpoint": "/products?limit=-1",
+      "description": "Negative limit -> 400",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 400,
+      "response_body": "{\"message\":\"Invalid 'limit' - should be a positive number\"}",
+      "assertions": [
+        "status==400",
+        "body.message contains 'limit'"
+      ],
+      "tags": [
+        "error-code"
+      ],
+      "id": "TC-029"
+    },
+    {
+      "module": "Products",
+      "category": "ERROR-CODE",
+      "method": "GET",
+      "endpoint": "/products?skip=-5",
+      "description": "Negative skip -> 400",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 400,
+      "response_body": "{\"message\":\"Invalid 'skip' - should be a positive number\"}",
+      "assertions": [
+        "status==400",
+        "body.message contains 'skip'"
+      ],
+      "tags": [
+        "error-code"
+      ],
+      "id": "TC-030"
+    },
+    {
+      "module": "Products",
+      "category": "HAPPY",
+      "method": "POST",
+      "endpoint": "/products/add",
+      "description": "Add product (simulated, not persisted)",
+      "auth": "none",
+      "request_body": "{\"title\":\"BMW Pencil\",\"price\":9.99}",
+      "expected_status": 201,
+      "response_body": "{\"id\":195,\"title\":\"BMW Pencil\",\"price\":9.99}",
+      "assertions": [
+        "status==201",
+        "body.id is number",
+        "body.title=='BMW Pencil'",
+        "body.price==9.99"
+      ],
+      "tags": [
+        "happy"
+      ],
+      "id": "TC-031"
+    },
+    {
+      "module": "Products",
+      "category": "NEGATIVE",
+      "method": "POST",
+      "endpoint": "/products/add",
+      "description": "Add product with empty body still creates stub",
+      "auth": "none",
+      "request_body": "{}",
+      "expected_status": 201,
+      "response_body": "{\"id\":195}",
+      "assertions": [
+        "status==201",
+        "typeof body.id=='number'"
+      ],
+      "tags": [
+        "negative"
+      ],
+      "id": "TC-032"
+    },
+    {
+      "module": "Products",
+      "category": "HAPPY",
+      "method": "PUT",
+      "endpoint": "/products/1",
+      "description": "Update product title (simulated)",
+      "auth": "none",
+      "request_body": "{\"title\":\"iPhone Galaxy +1\"}",
+      "expected_status": 200,
+      "response_body": "{\"id\":1,\"title\":\"iPhone Galaxy +1\",\"price\":..}",
+      "assertions": [
+        "status==200",
+        "body.id==1",
+        "body.title=='iPhone Galaxy +1'",
+        "other fields retained (price number)"
+      ],
+      "tags": [
+        "happy"
+      ],
+      "id": "TC-033"
+    },
+    {
+      "module": "Products",
+      "category": "HAPPY",
+      "method": "PATCH",
+      "endpoint": "/products/1",
+      "description": "Partial update product price (simulated)",
+      "auth": "none",
+      "request_body": "{\"price\":1.23}",
+      "expected_status": 200,
+      "response_body": "{\"id\":1,\"price\":1.23,...}",
+      "assertions": [
+        "status==200",
+        "body.id==1",
+        "body.price==1.23"
+      ],
+      "tags": [
+        "happy"
+      ],
+      "id": "TC-034"
+    },
+    {
+      "module": "Products",
+      "category": "ERROR-CODE",
+      "method": "PUT",
+      "endpoint": "/products/999999",
+      "description": "Update non-existent product -> 404",
+      "auth": "none",
+      "request_body": "{\"title\":\"X\"}",
+      "expected_status": 404,
+      "response_body": "{\"message\":\"Product with id '999999' not found\"}",
+      "assertions": [
+        "status==404",
+        "body.message contains 'not found'"
+      ],
+      "tags": [
+        "error-code"
+      ],
+      "id": "TC-035"
+    },
+    {
+      "module": "Products",
+      "category": "HAPPY",
+      "method": "DELETE",
+      "endpoint": "/products/1",
+      "description": "Delete product (simulated)",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "{\"id\":1,...,\"isDeleted\":true,\"deletedOn\":\"ISO\"}",
+      "assertions": [
+        "status==200",
+        "body.id==1",
+        "body.isDeleted===true",
+        "Date.parse(body.deletedOn) is valid"
+      ],
+      "tags": [
+        "happy"
+      ],
+      "id": "TC-036"
+    },
+    {
+      "module": "Products",
+      "category": "ERROR-CODE",
+      "method": "DELETE",
+      "endpoint": "/products/999999",
+      "description": "Delete non-existent product -> 404",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 404,
+      "response_body": "{\"message\":\"Product with id '999999' not found\"}",
+      "assertions": [
+        "status==404",
+        "body.message contains 'not found'"
+      ],
+      "tags": [
+        "error-code"
+      ],
+      "id": "TC-037"
+    },
+    {
+      "module": "Products",
+      "category": "BODY-VALIDATION",
+      "method": "GET",
+      "endpoint": "/products/1",
+      "description": "Delete is simulated: product still exists afterwards (non-persistence)",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "Product 1 object",
+      "assertions": [
+        "status==200",
+        "body.id==1 (state unchanged after prior DELETE/PUT)"
+      ],
+      "tags": [
+        "body-validation",
+        "idempotency"
+      ],
+      "id": "TC-038"
+    },
+    {
+      "module": "Auth",
+      "category": "AUTH",
+      "method": "POST",
+      "endpoint": "/auth/login",
+      "description": "Login with valid credentials",
+      "auth": "none",
+      "request_body": "{\"username\":\"emilys\",\"password\":\"emilyspass\",\"expiresInMins\":30}",
+      "expected_status": 200,
+      "response_body": "{\"accessToken\":\"<jwt>\",\"refreshToken\":\"<jwt>\",\"id\":1,\"username\":\"emilys\",\"email\":\"..\",\"firstName\":\"..\",\"lastName\":\"..\",\"gender\":\"..\",\"image\":\"..\"}",
+      "assertions": [
+        "status==200",
+        "body.accessToken is JWT (3 dot-separated parts)",
+        "body.refreshToken is JWT",
+        "body.id==1",
+        "body.username=='emilys'",
+        "save ACCESS_TOKEN & REFRESH_TOKEN for later tests"
+      ],
+      "tags": [
+        "auth",
+        "happy",
+        "smoke"
+      ],
+      "id": "TC-039"
+    },
+    {
+      "module": "Auth",
+      "category": "BODY-VALIDATION",
+      "method": "POST",
+      "endpoint": "/auth/login",
+      "description": "Login response schema",
+      "auth": "none",
+      "request_body": "{\"username\":\"emilys\",\"password\":\"emilyspass\"}",
+      "expected_status": 200,
+      "response_body": "Keys: accessToken,refreshToken,id,username,email,firstName,lastName,gender,image",
+      "assertions": [
+        "status==200",
+        "all listed keys present",
+        "email matches /^\\S+@\\S+$/",
+        "image is http(s) URL",
+        "password NOT present in response"
+      ],
+      "tags": [
+        "body-validation"
+      ],
+      "id": "TC-040"
+    },
+    {
+      "module": "Auth",
+      "category": "AUTH",
+      "method": "POST",
+      "endpoint": "/auth/login",
+      "description": "Access token payload contains expected claims",
+      "auth": "none",
+      "request_body": "{\"username\":\"emilys\",\"password\":\"emilyspass\",\"expiresInMins\":30}",
+      "expected_status": 200,
+      "response_body": "JWT",
+      "assertions": [
+        "decode accessToken payload",
+        "payload.id==1",
+        "payload.exp > payload.iat",
+        "(exp-iat) approx 1800s (+-5s)"
+      ],
+      "tags": [
+        "auth"
+      ],
+      "id": "TC-041"
+    },
+    {
+      "module": "Auth",
+      "category": "AUTH",
+      "method": "POST",
+      "endpoint": "/auth/login",
+      "description": "expiresInMins=1 yields short-lived token",
+      "auth": "none",
+      "request_body": "{\"username\":\"emilys\",\"password\":\"emilyspass\",\"expiresInMins\":1}",
+      "expected_status": 200,
+      "response_body": "JWT",
+      "assertions": [
+        "status==200",
+        "(exp-iat) approx 60s (+-5s)"
+      ],
+      "tags": [
+        "auth"
+      ],
+      "id": "TC-042"
+    },
+    {
+      "module": "Auth",
+      "category": "NEGATIVE",
+      "method": "POST",
+      "endpoint": "/auth/login",
+      "description": "Wrong password rejected",
+      "auth": "none",
+      "request_body": "{\"username\":\"emilys\",\"password\":\"wrongpass\"}",
+      "expected_status": 400,
+      "response_body": "{\"message\":\"Invalid credentials\"}",
+      "assertions": [
+        "status==400",
+        "body.message=='Invalid credentials'",
+        "no accessToken in body"
+      ],
+      "tags": [
+        "negative",
+        "auth"
+      ],
+      "id": "TC-043"
+    },
+    {
+      "module": "Auth",
+      "category": "NEGATIVE",
+      "method": "POST",
+      "endpoint": "/auth/login",
+      "description": "Unknown username rejected",
+      "auth": "none",
+      "request_body": "{\"username\":\"nouser\",\"password\":\"x\"}",
+      "expected_status": 400,
+      "response_body": "{\"message\":\"Invalid credentials\"}",
+      "assertions": [
+        "status==400",
+        "body.message=='Invalid credentials'"
+      ],
+      "tags": [
+        "negative",
+        "auth"
+      ],
+      "id": "TC-044"
+    },
+    {
+      "module": "Auth",
+      "category": "NEGATIVE",
+      "method": "POST",
+      "endpoint": "/auth/login",
+      "description": "Missing password",
+      "auth": "none",
+      "request_body": "{\"username\":\"emilys\"}",
+      "expected_status": 400,
+      "response_body": "{\"message\":\"Username and password required\"}",
+      "assertions": [
+        "status==400",
+        "body.message=='Username and password required'"
+      ],
+      "tags": [
+        "negative",
+        "auth"
+      ],
+      "id": "TC-045"
+    },
+    {
+      "module": "Auth",
+      "category": "NEGATIVE",
+      "method": "POST",
+      "endpoint": "/auth/login",
+      "description": "Empty body",
+      "auth": "none",
+      "request_body": "{}",
+      "expected_status": 400,
+      "response_body": "{\"message\":\"Username and password required\"}",
+      "assertions": [
+        "status==400",
+        "body.message=='Username and password required'"
+      ],
+      "tags": [
+        "negative",
+        "auth"
+      ],
+      "id": "TC-046"
+    },
+    {
+      "module": "Auth",
+      "category": "NEGATIVE",
+      "method": "POST",
+      "endpoint": "/auth/login",
+      "description": "Malformed JSON body",
+      "auth": "none",
+      "request_body": "{bad",
+      "expected_status": 400,
+      "response_body": "{\"message\":\"<JSON parse error>\"}",
+      "assertions": [
+        "status==400",
+        "typeof body.message=='string' and non-empty"
+      ],
+      "tags": [
+        "negative",
+        "error-code"
+      ],
+      "id": "TC-047"
+    },
+    {
+      "module": "Auth",
+      "category": "NEGATIVE",
+      "method": "POST",
+      "endpoint": "/auth/login",
+      "description": "SQL-injection style username does not authenticate",
+      "auth": "none",
+      "request_body": "{\"username\":\"emilys' OR '1'='1\",\"password\":\"x\"}",
+      "expected_status": 400,
+      "response_body": "{\"message\":\"Invalid credentials\"}",
+      "assertions": [
+        "status==400",
+        "no accessToken in body"
+      ],
+      "tags": [
+        "negative",
+        "security"
+      ],
+      "id": "TC-048"
+    },
+    {
+      "module": "Auth",
+      "category": "AUTH",
+      "method": "GET",
+      "endpoint": "/auth/me",
+      "description": "Get current user with valid bearer token",
+      "auth": "Bearer {{ACCESS_TOKEN}}",
+      "request_body": "Header: Authorization: Bearer {{ACCESS_TOKEN}}",
+      "expected_status": 200,
+      "response_body": "User object (id=1, username=emilys)",
+      "assertions": [
+        "status==200",
+        "body.id==1",
+        "body.username=='emilys'",
+        "body.email present"
+      ],
+      "tags": [
+        "auth",
+        "happy"
+      ],
+      "id": "TC-049"
+    },
+    {
+      "module": "Auth",
+      "category": "BODY-VALIDATION",
+      "method": "GET",
+      "endpoint": "/auth/me",
+      "description": "Current-user schema",
+      "auth": "Bearer {{ACCESS_TOKEN}}",
+      "request_body": "Header: Authorization: Bearer {{ACCESS_TOKEN}}",
+      "expected_status": 200,
+      "response_body": "Keys: id,firstName,lastName,age,gender,email,phone,username,birthDate,image,address,company,bank,role",
+      "assertions": [
+        "status==200",
+        "address has city,state,country",
+        "company has name,title,department",
+        "age is integer",
+        "birthDate parses as Date"
+      ],
+      "tags": [
+        "body-validation",
+        "auth"
+      ],
+      "id": "TC-050"
+    },
+    {
+      "module": "Auth",
+      "category": "AUTH",
+      "method": "GET",
+      "endpoint": "/auth/me",
+      "description": "Missing token -> 401",
+      "auth": "none",
+      "request_body": "(no Authorization header, no cookies)",
+      "expected_status": 401,
+      "response_body": "{\"message\":\"Access Token is required\"}",
+      "assertions": [
+        "status==401",
+        "body.message=='Access Token is required'"
+      ],
+      "tags": [
+        "auth",
+        "negative",
+        "error-code"
+      ],
+      "id": "TC-051"
+    },
+    {
+      "module": "Auth",
+      "category": "AUTH",
+      "method": "GET",
+      "endpoint": "/auth/me",
+      "description": "Garbage token -> 401",
+      "auth": "Bearer abc",
+      "request_body": "Header: Authorization: Bearer abc",
+      "expected_status": 401,
+      "response_body": "{\"message\":\"Invalid/Expired Token!\"}",
+      "assertions": [
+        "status==401",
+        "body.message contains 'Invalid'"
+      ],
+      "tags": [
+        "auth",
+        "negative",
+        "error-code"
+      ],
+      "id": "TC-052"
+    },
+    {
+      "module": "Auth",
+      "category": "AUTH",
+      "method": "GET",
+      "endpoint": "/auth/me",
+      "description": "Tampered token signature is rejected (KNOWN QUIRK: API returns 500 'invalid signature' instead of 401)",
+      "auth": "none",
+      "request_body": "Header: Authorization: Bearer <valid token with last 3 chars changed>",
+      "expected_status": 500,
+      "response_body": "{\"message\":\"invalid signature\"}",
+      "assertions": [
+        "status is NOT 200 (security gate)",
+        "status in [401,403,500]; currently observed 500",
+        "body.message contains 'invalid signature' or 'Invalid'",
+        "no user data in body",
+        "if status becomes 401 in future, update expectation and close known-issue"
+      ],
+      "tags": [
+        "auth",
+        "negative",
+        "security",
+        "known-issue"
+      ],
+      "id": "TC-053"
+    },
+    {
+      "module": "Auth",
+      "category": "AUTH",
+      "method": "GET",
+      "endpoint": "/auth/me",
+      "description": "Expired token -> 401 (login with expiresInMins=1, wait >60s)",
+      "auth": "none",
+      "request_body": "Header: Authorization: Bearer <expired>",
+      "expected_status": 401,
+      "response_body": "{\"message\":\"Invalid/Expired Token!\"}",
+      "assertions": [
+        "status==401",
+        "body.message contains 'Expired' or 'Invalid'",
+        "mark @slow, run only in nightly"
+      ],
+      "tags": [
+        "auth",
+        "negative",
+        "slow"
+      ],
+      "id": "TC-054"
+    },
+    {
+      "module": "Auth",
+      "category": "AUTH",
+      "method": "GET",
+      "endpoint": "/auth/me",
+      "description": "Wrong scheme (Basic) -> 401",
+      "auth": "none",
+      "request_body": "Header: Authorization: Basic abc",
+      "expected_status": 401,
+      "response_body": "{\"message\":\"Invalid/Expired Token!\"}",
+      "assertions": [
+        "status==401",
+        "body.message contains 'Invalid'"
+      ],
+      "tags": [
+        "auth",
+        "negative"
+      ],
+      "id": "TC-055"
+    },
+    {
+      "module": "Auth",
+      "category": "AUTH",
+      "method": "POST",
+      "endpoint": "/auth/refresh",
+      "description": "Refresh session with valid refresh token",
+      "auth": "none",
+      "request_body": "{\"refreshToken\":\"{{REFRESH_TOKEN}}\",\"expiresInMins\":30}",
+      "expected_status": 200,
+      "response_body": "{\"accessToken\":\"<jwt>\",\"refreshToken\":\"<jwt>\"}",
+      "assertions": [
+        "status==200",
+        "new accessToken is JWT",
+        "new refreshToken is JWT",
+        "new accessToken works on GET /auth/me (200)"
+      ],
+      "tags": [
+        "auth",
+        "happy"
+      ],
+      "id": "TC-056"
+    },
+    {
+      "module": "Auth",
+      "category": "AUTH",
+      "method": "POST",
+      "endpoint": "/auth/refresh",
+      "description": "Invalid refresh token -> 403",
+      "auth": "none",
+      "request_body": "{\"refreshToken\":\"bad\"}",
+      "expected_status": 403,
+      "response_body": "{\"message\":\"Invalid refresh token\"}",
+      "assertions": [
+        "status==403",
+        "body.message=='Invalid refresh token'"
+      ],
+      "tags": [
+        "auth",
+        "negative",
+        "error-code"
+      ],
+      "id": "TC-057"
+    },
+    {
+      "module": "Auth",
+      "category": "AUTH",
+      "method": "POST",
+      "endpoint": "/auth/refresh",
+      "description": "Missing refresh token -> 401",
+      "auth": "none",
+      "request_body": "{}",
+      "expected_status": 401,
+      "response_body": "{\"message\":\"Refresh token required\"}",
+      "assertions": [
+        "status==401",
+        "body.message=='Refresh token required'"
+      ],
+      "tags": [
+        "auth",
+        "negative",
+        "error-code"
+      ],
+      "id": "TC-058"
+    },
+    {
+      "module": "Auth",
+      "category": "AUTH",
+      "method": "GET",
+      "endpoint": "/auth/products",
+      "description": "Protected products route with valid token",
+      "auth": "Bearer {{ACCESS_TOKEN}}",
+      "request_body": "Header: Authorization: Bearer {{ACCESS_TOKEN}}",
+      "expected_status": 200,
+      "response_body": "{\"products\":[...],\"total\":N,\"skip\":0,\"limit\":30}",
+      "assertions": [
+        "status==200",
+        "Array.isArray(body.products)",
+        "body.products.length>0"
+      ],
+      "tags": [
+        "auth",
+        "happy"
+      ],
+      "id": "TC-059"
+    },
+    {
+      "module": "Auth",
+      "category": "AUTH",
+      "method": "GET",
+      "endpoint": "/auth/products",
+      "description": "Protected products route without token -> 401",
+      "auth": "none",
+      "request_body": "(no Authorization header)",
+      "expected_status": 401,
+      "response_body": "{\"message\":\"Access Token is required\"}",
+      "assertions": [
+        "status==401",
+        "body.message=='Access Token is required'"
+      ],
+      "tags": [
+        "auth",
+        "negative",
+        "error-code"
+      ],
+      "id": "TC-060"
+    },
+    {
+      "module": "Auth",
+      "category": "AUTH",
+      "method": "GET",
+      "endpoint": "/auth/products",
+      "description": "Protected products route with invalid token -> 401",
+      "auth": "none",
+      "request_body": "Header: Authorization: Bearer invalid.token.value",
+      "expected_status": 401,
+      "response_body": "{\"message\":\"Invalid/Expired Token!\"}",
+      "assertions": [
+        "status==401",
+        "body.message contains 'Invalid'"
+      ],
+      "tags": [
+        "auth",
+        "negative",
+        "error-code"
+      ],
+      "id": "TC-061"
+    },
+    {
+      "module": "Auth",
+      "category": "AUTH",
+      "method": "GET",
+      "endpoint": "/auth/users",
+      "description": "Protected users route with valid token",
+      "auth": "Bearer {{ACCESS_TOKEN}}",
+      "request_body": "Header: Authorization: Bearer {{ACCESS_TOKEN}}",
+      "expected_status": 200,
+      "response_body": "{\"users\":[...],\"total\":N,...}",
+      "assertions": [
+        "status==200",
+        "Array.isArray(body.users)"
+      ],
+      "tags": [
+        "auth",
+        "happy"
+      ],
+      "id": "TC-062"
+    },
+    {
+      "module": "Auth",
+      "category": "AUTH",
+      "method": "GET",
+      "endpoint": "/auth/carts",
+      "description": "Protected carts route with valid token",
+      "auth": "Bearer {{ACCESS_TOKEN}}",
+      "request_body": "Header: Authorization: Bearer {{ACCESS_TOKEN}}",
+      "expected_status": 200,
+      "response_body": "{\"carts\":[...],\"total\":N,...}",
+      "assertions": [
+        "status==200",
+        "Array.isArray(body.carts)"
+      ],
+      "tags": [
+        "auth",
+        "happy"
+      ],
+      "id": "TC-063"
+    },
+    {
+      "module": "Users",
+      "category": "HAPPY",
+      "method": "GET",
+      "endpoint": "/users",
+      "description": "List users default pagination",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "{\"users\":[...30],\"total\":208,\"skip\":0,\"limit\":30}",
+      "assertions": [
+        "status==200",
+        "body.users.length<=30",
+        "body.skip==0",
+        "body.total>=body.users.length"
+      ],
+      "tags": [
+        "happy"
+      ],
+      "id": "TC-064"
+    },
+    {
+      "module": "Users",
+      "category": "HAPPY",
+      "method": "GET",
+      "endpoint": "/users/1",
+      "description": "Get single user",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "User object id=1",
+      "assertions": [
+        "status==200",
+        "body.id==1",
+        "typeof body.firstName=='string'",
+        "typeof body.lastName=='string'"
+      ],
+      "tags": [
+        "happy"
+      ],
+      "id": "TC-065"
+    },
+    {
+      "module": "Users",
+      "category": "BODY-VALIDATION",
+      "method": "GET",
+      "endpoint": "/users/1",
+      "description": "User schema and nested objects",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "Keys: id,firstName,lastName,age,gender,email,phone,username,birthDate,image,bloodGroup,height,weight,eyeColor,hair,address,company,bank,ein,ssn,userAgent,role",
+      "assertions": [
+        "status==200",
+        "hair has color,type",
+        "address has address,city,state,postalCode,coordinates{lat,lng}",
+        "bank has cardNumber,cardType,currency",
+        "role in ['admin','moderator','user']"
+      ],
+      "tags": [
+        "body-validation"
+      ],
+      "id": "TC-066"
+    },
+    {
+      "module": "Users",
+      "category": "HAPPY",
+      "method": "GET",
+      "endpoint": "/users/search?q=John&limit=5",
+      "description": "Search users by name",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "{\"users\":[...],\"total\":N,...}",
+      "assertions": [
+        "status==200",
+        "body.users.length>0",
+        "each user firstName/lastName/username contains 'John' (case-insens.)"
+      ],
+      "tags": [
+        "happy"
+      ],
+      "id": "TC-067"
+    },
+    {
+      "module": "Users",
+      "category": "HAPPY",
+      "method": "GET",
+      "endpoint": "/users/filter?key=hair.color&value=Brown&limit=5",
+      "description": "Filter users by nested key",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "{\"users\":[...],\"total\":N,...}",
+      "assertions": [
+        "status==200",
+        "every user.hair.color=='Brown'",
+        "body.total>0"
+      ],
+      "tags": [
+        "happy"
+      ],
+      "id": "TC-068"
+    },
+    {
+      "module": "Users",
+      "category": "HAPPY",
+      "method": "GET",
+      "endpoint": "/users?sortBy=age&order=asc&limit=5",
+      "description": "Sort users by age ascending",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "{\"users\":[5 sorted]}",
+      "assertions": [
+        "status==200",
+        "ages array sorted ascending"
+      ],
+      "tags": [
+        "happy"
+      ],
+      "id": "TC-069"
+    },
+    {
+      "module": "Users",
+      "category": "BODY-VALIDATION",
+      "method": "GET",
+      "endpoint": "/users?limit=3&select=firstName",
+      "description": "Users select projection",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "{\"users\":[{\"id\":1,\"firstName\":\"..\"}],...}",
+      "assertions": [
+        "status==200",
+        "each user has firstName",
+        "each user has NO lastName/email"
+      ],
+      "tags": [
+        "body-validation"
+      ],
+      "id": "TC-070"
+    },
+    {
+      "module": "Users",
+      "category": "ERROR-CODE",
+      "method": "GET",
+      "endpoint": "/users/999999",
+      "description": "Non-existent user -> 404",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 404,
+      "response_body": "{\"message\":\"User with id '999999' not found\"}",
+      "assertions": [
+        "status==404",
+        "body.message contains 'not found'"
+      ],
+      "tags": [
+        "error-code"
+      ],
+      "id": "TC-071"
+    },
+    {
+      "module": "Users",
+      "category": "ERROR-CODE",
+      "method": "GET",
+      "endpoint": "/users/abc",
+      "description": "Non-numeric user id -> 400",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 400,
+      "response_body": "{\"message\":\"Invalid user id 'abc'\"}",
+      "assertions": [
+        "status==400",
+        "body.message contains 'Invalid user id'"
+      ],
+      "tags": [
+        "error-code"
+      ],
+      "id": "TC-072"
+    },
+    {
+      "module": "Users",
+      "category": "HAPPY",
+      "method": "POST",
+      "endpoint": "/users/add",
+      "description": "Add user (simulated)",
+      "auth": "none",
+      "request_body": "{\"firstName\":\"Muhammad\",\"lastName\":\"Ovi\",\"age\":250}",
+      "expected_status": 201,
+      "response_body": "{\"id\":209,\"firstName\":\"Muhammad\",\"lastName\":\"Ovi\",\"age\":250,...}",
+      "assertions": [
+        "status==201",
+        "body.id is number",
+        "body.firstName=='Muhammad'",
+        "body.lastName=='Ovi'",
+        "body.age==250"
+      ],
+      "tags": [
+        "happy"
+      ],
+      "id": "TC-073"
+    },
+    {
+      "module": "Users",
+      "category": "HAPPY",
+      "method": "PUT",
+      "endpoint": "/users/1",
+      "description": "Update user last name (simulated)",
+      "auth": "none",
+      "request_body": "{\"lastName\":\"Owais\"}",
+      "expected_status": 200,
+      "response_body": "{\"id\":1,\"lastName\":\"Owais\",...}",
+      "assertions": [
+        "status==200",
+        "body.id==1",
+        "body.lastName=='Owais'"
+      ],
+      "tags": [
+        "happy"
+      ],
+      "id": "TC-074"
+    },
+    {
+      "module": "Users",
+      "category": "HAPPY",
+      "method": "DELETE",
+      "endpoint": "/users/1",
+      "description": "Delete user (simulated)",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "{\"id\":1,...,\"isDeleted\":true,\"deletedOn\":\"ISO\"}",
+      "assertions": [
+        "status==200",
+        "body.isDeleted===true",
+        "Date.parse(body.deletedOn) is valid"
+      ],
+      "tags": [
+        "happy"
+      ],
+      "id": "TC-075"
+    },
+    {
+      "module": "Carts",
+      "category": "HAPPY",
+      "method": "GET",
+      "endpoint": "/carts",
+      "description": "List carts",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "{\"carts\":[...],\"total\":N,\"skip\":0,\"limit\":30}",
+      "assertions": [
+        "status==200",
+        "Array.isArray(body.carts)",
+        "body.carts.length<=30"
+      ],
+      "tags": [
+        "happy"
+      ],
+      "id": "TC-076"
+    },
+    {
+      "module": "Carts",
+      "category": "HAPPY",
+      "method": "GET",
+      "endpoint": "/carts/1",
+      "description": "Get single cart",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "Cart object id=1",
+      "assertions": [
+        "status==200",
+        "body.id==1",
+        "Array.isArray(body.products)"
+      ],
+      "tags": [
+        "happy"
+      ],
+      "id": "TC-077"
+    },
+    {
+      "module": "Carts",
+      "category": "BODY-VALIDATION",
+      "method": "GET",
+      "endpoint": "/carts/1",
+      "description": "Cart schema and totals consistency",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "{\"id\":1,\"products\":[{\"id\",\"title\",\"price\",\"quantity\",\"total\",\"discountPercentage\",\"discountedTotal\",\"thumbnail\"}],\"total\":n,\"discountedTotal\":n,\"userId\":n,\"totalProducts\":n,\"totalQuantity\":n}",
+      "assertions": [
+        "body.totalProducts==products.length",
+        "body.totalQuantity==sum(products.quantity)",
+        "each product.total ~= price*quantity (+-0.01)",
+        "body.discountedTotal<=body.total"
+      ],
+      "tags": [
+        "body-validation"
+      ],
+      "id": "TC-078"
+    },
+    {
+      "module": "Carts",
+      "category": "HAPPY",
+      "method": "GET",
+      "endpoint": "/carts/user/6",
+      "description": "Carts for user id",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "{\"carts\":[...],\"total\":N,...}",
+      "assertions": [
+        "status==200",
+        "every cart.userId==6"
+      ],
+      "tags": [
+        "happy"
+      ],
+      "id": "TC-079"
+    },
+    {
+      "module": "Carts",
+      "category": "HAPPY",
+      "method": "POST",
+      "endpoint": "/carts/add",
+      "description": "Add cart (simulated)",
+      "auth": "none",
+      "request_body": "{\"userId\":1,\"products\":[{\"id\":144,\"quantity\":4},{\"id\":98,\"quantity\":1}]}",
+      "expected_status": 201,
+      "response_body": "{\"id\":51,\"products\":[2 items],\"total\":n,\"userId\":1,\"totalProducts\":2,\"totalQuantity\":5,...}",
+      "assertions": [
+        "status==201",
+        "body.userId==1",
+        "body.totalProducts==2",
+        "body.totalQuantity==5"
+      ],
+      "tags": [
+        "happy"
+      ],
+      "id": "TC-080"
+    },
+    {
+      "module": "Carts",
+      "category": "HAPPY",
+      "method": "PUT",
+      "endpoint": "/carts/1",
+      "description": "Merge products into cart (simulated)",
+      "auth": "none",
+      "request_body": "{\"merge\":true,\"products\":[{\"id\":1,\"quantity\":1}]}",
+      "expected_status": 200,
+      "response_body": "Updated cart object",
+      "assertions": [
+        "status==200",
+        "body.id==1",
+        "body.products contains id==1"
+      ],
+      "tags": [
+        "happy"
+      ],
+      "id": "TC-081"
+    },
+    {
+      "module": "Carts",
+      "category": "HAPPY",
+      "method": "DELETE",
+      "endpoint": "/carts/1",
+      "description": "Delete cart (simulated)",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "{\"id\":1,...,\"isDeleted\":true,\"deletedOn\":\"ISO\"}",
+      "assertions": [
+        "status==200",
+        "body.isDeleted===true"
+      ],
+      "tags": [
+        "happy"
+      ],
+      "id": "TC-082"
+    },
+    {
+      "module": "Carts",
+      "category": "ERROR-CODE",
+      "method": "GET",
+      "endpoint": "/carts/999999",
+      "description": "Non-existent cart -> 404",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 404,
+      "response_body": "{\"message\":\"Cart with id '999999' not found\"}",
+      "assertions": [
+        "status==404",
+        "body.message contains 'not found'"
+      ],
+      "tags": [
+        "error-code"
+      ],
+      "id": "TC-083"
+    },
+    {
+      "module": "Carts",
+      "category": "ERROR-CODE",
+      "method": "GET",
+      "endpoint": "/carts/user/999999",
+      "description": "Carts of non-existent user -> 404",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 404,
+      "response_body": "{\"message\":\"User with id '999999' not found\"}",
+      "assertions": [
+        "status==404",
+        "body.message contains 'User with id'"
+      ],
+      "tags": [
+        "error-code"
+      ],
+      "id": "TC-084"
+    },
+    {
+      "module": "Carts",
+      "category": "NEGATIVE",
+      "method": "POST",
+      "endpoint": "/carts/add",
+      "description": "Add cart without userId -> 400",
+      "auth": "none",
+      "request_body": "{}",
+      "expected_status": 400,
+      "response_body": "{\"message\":\"User id is required\"}",
+      "assertions": [
+        "status==400",
+        "body.message=='User id is required'"
+      ],
+      "tags": [
+        "negative",
+        "error-code"
+      ],
+      "id": "TC-085"
+    },
+    {
+      "module": "Todos",
+      "category": "HAPPY",
+      "method": "GET",
+      "endpoint": "/todos/1",
+      "description": "Get single todo",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "{\"id\":1,\"todo\":\"..\",\"completed\":bool,\"userId\":n}",
+      "assertions": [
+        "status==200",
+        "body.id==1",
+        "typeof body.todo=='string'",
+        "typeof body.completed=='boolean'",
+        "typeof body.userId=='number'"
+      ],
+      "tags": [
+        "happy"
+      ],
+      "id": "TC-086"
+    },
+    {
+      "module": "Todos",
+      "category": "HAPPY",
+      "method": "GET",
+      "endpoint": "/todos/random",
+      "description": "Random todo",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "{\"id\":n,\"todo\":\"..\",\"completed\":bool,\"userId\":n}",
+      "assertions": [
+        "status==200",
+        "body has id,todo,completed,userId"
+      ],
+      "tags": [
+        "happy"
+      ],
+      "id": "TC-087"
+    },
+    {
+      "module": "Todos",
+      "category": "HAPPY",
+      "method": "GET",
+      "endpoint": "/todos/user/5?limit=3",
+      "description": "Todos by user",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "{\"todos\":[...],\"total\":N,\"skip\":0,\"limit\":3}",
+      "assertions": [
+        "status==200",
+        "every todo.userId==5",
+        "body.todos.length<=3"
+      ],
+      "tags": [
+        "happy"
+      ],
+      "id": "TC-088"
+    },
+    {
+      "module": "Todos",
+      "category": "HAPPY",
+      "method": "POST",
+      "endpoint": "/todos/add",
+      "description": "Add todo (simulated)",
+      "auth": "none",
+      "request_body": "{\"todo\":\"Use DummyJSON in the project\",\"completed\":false,\"userId\":5}",
+      "expected_status": 201,
+      "response_body": "{\"id\":255,\"todo\":\"..\",\"completed\":false,\"userId\":5}",
+      "assertions": [
+        "status==201",
+        "body.todo=='Use DummyJSON in the project'",
+        "body.completed===false",
+        "body.userId==5"
+      ],
+      "tags": [
+        "happy"
+      ],
+      "id": "TC-089"
+    },
+    {
+      "module": "Todos",
+      "category": "NEGATIVE",
+      "method": "POST",
+      "endpoint": "/todos/add",
+      "description": "Add todo without userId -> 400",
+      "auth": "none",
+      "request_body": "{}",
+      "expected_status": 400,
+      "response_body": "{\"message\":\"User id is required\"}",
+      "assertions": [
+        "status==400",
+        "body.message=='User id is required'"
+      ],
+      "tags": [
+        "negative",
+        "error-code"
+      ],
+      "id": "TC-090"
+    },
+    {
+      "module": "Todos",
+      "category": "HAPPY",
+      "method": "PUT",
+      "endpoint": "/todos/1",
+      "description": "Update todo completed flag (simulated)",
+      "auth": "none",
+      "request_body": "{\"completed\":false}",
+      "expected_status": 200,
+      "response_body": "{\"id\":1,\"todo\":\"..\",\"completed\":false,\"userId\":n}",
+      "assertions": [
+        "status==200",
+        "body.id==1",
+        "body.completed===false"
+      ],
+      "tags": [
+        "happy"
+      ],
+      "id": "TC-091"
+    },
+    {
+      "module": "Todos",
+      "category": "HAPPY",
+      "method": "DELETE",
+      "endpoint": "/todos/1",
+      "description": "Delete todo (simulated)",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "{\"id\":1,...,\"isDeleted\":true,\"deletedOn\":\"ISO\"}",
+      "assertions": [
+        "status==200",
+        "body.isDeleted===true"
+      ],
+      "tags": [
+        "happy"
+      ],
+      "id": "TC-092"
+    },
+    {
+      "module": "Todos",
+      "category": "ERROR-CODE",
+      "method": "GET",
+      "endpoint": "/todos/999999",
+      "description": "Non-existent todo -> 404",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 404,
+      "response_body": "{\"message\":\"Todo with id '999999' not found\"}",
+      "assertions": [
+        "status==404",
+        "body.message contains 'not found'"
+      ],
+      "tags": [
+        "error-code"
+      ],
+      "id": "TC-093"
+    },
+    {
+      "module": "Posts",
+      "category": "HAPPY",
+      "method": "GET",
+      "endpoint": "/posts/1",
+      "description": "Get single post",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "{\"id\":1,\"title\":\"..\",\"body\":\"..\",\"tags\":[..],\"reactions\":{\"likes\":n,\"dislikes\":n},\"views\":n,\"userId\":n}",
+      "assertions": [
+        "status==200",
+        "body.id==1",
+        "Array.isArray(body.tags)",
+        "body.reactions.likes is number",
+        "body.reactions.dislikes is number"
+      ],
+      "tags": [
+        "happy"
+      ],
+      "id": "TC-094"
+    },
+    {
+      "module": "Posts",
+      "category": "HAPPY",
+      "method": "GET",
+      "endpoint": "/posts/search?q=love&limit=5",
+      "description": "Search posts",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "{\"posts\":[...],\"total\":N,...}",
+      "assertions": [
+        "status==200",
+        "Array.isArray(body.posts)",
+        "body.total>=body.posts.length"
+      ],
+      "tags": [
+        "happy"
+      ],
+      "id": "TC-095"
+    },
+    {
+      "module": "Posts",
+      "category": "HAPPY",
+      "method": "GET",
+      "endpoint": "/posts/1/comments",
+      "description": "Comments of a post",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "{\"comments\":[...],\"total\":N,...}",
+      "assertions": [
+        "status==200",
+        "every comment.postId==1",
+        "each comment has id,body,likes,user{id,username,fullName}"
+      ],
+      "tags": [
+        "happy"
+      ],
+      "id": "TC-096"
+    },
+    {
+      "module": "Posts",
+      "category": "HAPPY",
+      "method": "POST",
+      "endpoint": "/posts/add",
+      "description": "Add post (simulated)",
+      "auth": "none",
+      "request_body": "{\"title\":\"I am in love with someone.\",\"userId\":5}",
+      "expected_status": 201,
+      "response_body": "{\"id\":251,\"title\":\"..\",\"userId\":5}",
+      "assertions": [
+        "status==201",
+        "body.title=='I am in love with someone.'",
+        "body.userId==5"
+      ],
+      "tags": [
+        "happy"
+      ],
+      "id": "TC-097"
+    },
+    {
+      "module": "Posts",
+      "category": "ERROR-CODE",
+      "method": "GET",
+      "endpoint": "/posts/999999",
+      "description": "Non-existent post -> 404",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 404,
+      "response_body": "{\"message\":\"Post with id '999999' not found\"}",
+      "assertions": [
+        "status==404",
+        "body.message contains 'not found'"
+      ],
+      "tags": [
+        "error-code"
+      ],
+      "id": "TC-098"
+    },
+    {
+      "module": "Comments",
+      "category": "HAPPY",
+      "method": "GET",
+      "endpoint": "/comments/1",
+      "description": "Get single comment",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "{\"id\":1,\"body\":\"..\",\"postId\":n,\"likes\":n,\"user\":{\"id\",\"username\",\"fullName\"}}",
+      "assertions": [
+        "status==200",
+        "body.id==1",
+        "body.user has id,username,fullName"
+      ],
+      "tags": [
+        "happy"
+      ],
+      "id": "TC-099"
+    },
+    {
+      "module": "Comments",
+      "category": "HAPPY",
+      "method": "POST",
+      "endpoint": "/comments/add",
+      "description": "Add comment (simulated)",
+      "auth": "none",
+      "request_body": "{\"body\":\"This makes all sense to me!\",\"postId\":3,\"userId\":5}",
+      "expected_status": 201,
+      "response_body": "{\"id\":341,\"body\":\"..\",\"postId\":3,\"user\":{...}}",
+      "assertions": [
+        "status==201",
+        "body.body=='This makes all sense to me!'",
+        "body.postId==3"
+      ],
+      "tags": [
+        "happy"
+      ],
+      "id": "TC-100"
+    },
+    {
+      "module": "Comments",
+      "category": "ERROR-CODE",
+      "method": "GET",
+      "endpoint": "/comments/999999",
+      "description": "Non-existent comment -> 404",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 404,
+      "response_body": "{\"message\":\"Comment with id '999999' not found\"}",
+      "assertions": [
+        "status==404",
+        "body.message contains 'not found'"
+      ],
+      "tags": [
+        "error-code"
+      ],
+      "id": "TC-101"
+    },
+    {
+      "module": "Quotes",
+      "category": "HAPPY",
+      "method": "GET",
+      "endpoint": "/quotes/1",
+      "description": "Get single quote",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "{\"id\":1,\"quote\":\"..\",\"author\":\"..\"}",
+      "assertions": [
+        "status==200",
+        "body.id==1",
+        "typeof body.quote=='string'",
+        "typeof body.author=='string'"
+      ],
+      "tags": [
+        "happy"
+      ],
+      "id": "TC-102"
+    },
+    {
+      "module": "Quotes",
+      "category": "HAPPY",
+      "method": "GET",
+      "endpoint": "/quotes/random",
+      "description": "Random quote",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "{\"id\":n,\"quote\":\"..\",\"author\":\"..\"}",
+      "assertions": [
+        "status==200",
+        "body has id,quote,author"
+      ],
+      "tags": [
+        "happy"
+      ],
+      "id": "TC-103"
+    },
+    {
+      "module": "Quotes",
+      "category": "ERROR-CODE",
+      "method": "GET",
+      "endpoint": "/quotes/999999",
+      "description": "Non-existent quote -> 404",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 404,
+      "response_body": "{\"message\":\"Quote with id '999999' not found\"}",
+      "assertions": [
+        "status==404",
+        "body.message contains 'not found'"
+      ],
+      "tags": [
+        "error-code"
+      ],
+      "id": "TC-104"
+    },
+    {
+      "module": "Recipes",
+      "category": "BODY-VALIDATION",
+      "method": "GET",
+      "endpoint": "/recipes/1",
+      "description": "Recipe schema",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "Keys: id,name,ingredients[],instructions[],prepTimeMinutes,cookTimeMinutes,servings,difficulty,cuisine,caloriesPerServing,tags[],userId,image,rating,reviewCount,mealType[]",
+      "assertions": [
+        "status==200",
+        "ingredients and instructions are non-empty arrays of strings",
+        "prepTimeMinutes/cookTimeMinutes/servings are numbers",
+        "difficulty in ['Easy','Medium','Hard']"
+      ],
+      "tags": [
+        "body-validation"
+      ],
+      "id": "TC-105"
+    },
+    {
+      "module": "Recipes",
+      "category": "HAPPY",
+      "method": "GET",
+      "endpoint": "/recipes/search?q=pizza&limit=3",
+      "description": "Search recipes",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "{\"recipes\":[...],\"total\":N,...}",
+      "assertions": [
+        "status==200",
+        "Array.isArray(body.recipes)"
+      ],
+      "tags": [
+        "happy"
+      ],
+      "id": "TC-106"
+    },
+    {
+      "module": "Recipes",
+      "category": "HAPPY",
+      "method": "GET",
+      "endpoint": "/recipes/tags",
+      "description": "List recipe tags",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "[\"Pizza\",\"Italian\",...]",
+      "assertions": [
+        "status==200",
+        "array of strings",
+        "length>0"
+      ],
+      "tags": [
+        "happy"
+      ],
+      "id": "TC-107"
+    },
+    {
+      "module": "Recipes",
+      "category": "HAPPY",
+      "method": "GET",
+      "endpoint": "/recipes/meal-type/snack?limit=3",
+      "description": "Recipes by meal type",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "{\"recipes\":[...],...}",
+      "assertions": [
+        "status==200",
+        "every recipe.mealType includes 'Snack'"
+      ],
+      "tags": [
+        "happy"
+      ],
+      "id": "TC-108"
+    },
+    {
+      "module": "Recipes",
+      "category": "ERROR-CODE",
+      "method": "GET",
+      "endpoint": "/recipes/999999",
+      "description": "Non-existent recipe -> 404",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 404,
+      "response_body": "{\"message\":\"Recipe with id '999999' not found\"}",
+      "assertions": [
+        "status==404",
+        "body.message contains 'not found'"
+      ],
+      "tags": [
+        "error-code"
+      ],
+      "id": "TC-109"
+    },
+    {
+      "module": "Cross-cutting",
+      "category": "STATUS-CODE",
+      "method": "GET",
+      "endpoint": "/products/1",
+      "description": "Response content-type is JSON",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "Product 1",
+      "assertions": [
+        "header content-type matches /application\\/json/"
+      ],
+      "tags": [
+        "status-code"
+      ],
+      "id": "TC-110"
+    },
+    {
+      "module": "Cross-cutting",
+      "category": "STATUS-CODE",
+      "method": "GET",
+      "endpoint": "/products/1",
+      "description": "Repeated read is idempotent (two GETs return identical bodies)",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "Product 1 (twice)",
+      "assertions": [
+        "both status==200",
+        "JSON.stringify(body1)==JSON.stringify(body2)"
+      ],
+      "tags": [
+        "status-code",
+        "idempotency"
+      ],
+      "id": "TC-111"
+    },
+    {
+      "module": "Cross-cutting",
+      "category": "STATUS-CODE",
+      "method": "GET",
+      "endpoint": "/products?limit=30",
+      "description": "Response time under SLA (flaky-sensitive; retry-once)",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "{products:[30]}",
+      "assertions": [
+        "status==200",
+        "elapsed < 3000ms"
+      ],
+      "tags": [
+        "status-code",
+        "performance",
+        "flaky-watch"
+      ],
+      "id": "TC-112"
+    },
+    {
+      "module": "Cross-cutting",
+      "category": "BODY-VALIDATION",
+      "method": "GET",
+      "endpoint": "/products?limit=5&skip=190",
+      "description": "Last page: skip+limit beyond total clamps correctly",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "{\"products\":[<=4 items],\"total\":194,\"skip\":190,\"limit\":5}",
+      "assertions": [
+        "status==200",
+        "body.products.length == max(0, total-skip)",
+        "body.skip==190"
+      ],
+      "tags": [
+        "body-validation"
+      ],
+      "id": "TC-113"
+    },
+    {
+      "module": "Cross-cutting",
+      "category": "STATUS-CODE",
+      "method": "GET",
+      "endpoint": "/products?limit=1&skip=100000",
+      "description": "skip beyond total returns empty array, not error",
+      "auth": "none",
+      "request_body": "-",
+      "expected_status": 200,
+      "response_body": "{\"products\":[],\"total\":N,\"skip\":100000,\"limit\":0}",
+      "assertions": [
+        "status==200",
+        "body.products.length==0"
+      ],
+      "tags": [
+        "status-code"
+      ],
+      "id": "TC-114"
+    }
+  ]
+}
