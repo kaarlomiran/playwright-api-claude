@@ -1,0 +1,8 @@
+node_modules/
+test-results/
+reports/html/
+reports/*.xml
+.env
+dist/
+# Playwright CLI output (may contain credentials)
+.playwright-cli/
