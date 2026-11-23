@@ -1,7 +1,7 @@
 import { test, expect } from '../../src/fixtures/auth';
 
 test.describe('System', () => {
-  test('[TC-001] Test route responds for GET', { tag: ['@happy'] }, async ({ request }) => {
+  test('[TC-001] Test route responds for GET', { tag: ['@happy', '@smoke'] }, async ({ request }) => {
     const res = await request.get('/test');
     expect(res.status()).toBe(200);
     const body = await res.json();

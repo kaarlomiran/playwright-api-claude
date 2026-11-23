@@ -17,7 +17,7 @@ export default defineConfig({
   use: {
     baseURL: process.env.BASE_URL ?? 'https://dummyjson.com',
     extraHTTPHeaders: { Accept: 'application/json' },
-    trace: 'on-first-retry',
+    trace: 'retain-on-failure', // saved to test-results/ for every failed attempt, incl. first try of a flaky test
   },
   projects: [{ name: 'api', testMatch: /.*\.spec\.ts/ }],
 });
