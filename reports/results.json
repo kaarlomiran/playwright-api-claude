@@ -1,0 +1,288 @@
+{
+  "config": {
+    "argv": [
+      "/opt/homebrew/Cellar/node/23.3.0/bin/node",
+      "/Users/kaarlomiranda/playwright-api-claude/node_modules/.bin/playwright",
+      "test"
+    ],
+    "configFile": "/Users/kaarlomiranda/playwright-api-claude/playwright.config.ts",
+    "rootDir": "/Users/kaarlomiranda/playwright-api-claude/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 4
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/kaarlomiranda/playwright-api-claude/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "api",
+        "name": "api",
+        "testDir": "/Users/kaarlomiranda/playwright-api-claude/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "/.*\\.spec\\.ts/"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/kaarlomiranda/playwright-api-claude/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "name": "api",
+        "testDir": "/Users/kaarlomiranda/playwright-api-claude/tests",
+        "snapshotDir": "/Users/kaarlomiranda/playwright-api-claude/tests",
+        "testIgnore": [],
+        "testMatch": {},
+        "timeout": 30000,
+        "use": {
+          "baseURL": "https://dummyjson.com",
+          "extraHTTPHeaders": {
+            "Accept": "application/json"
+          },
+          "trace": "on-first-retry"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "api"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "reports/html",
+          "open": "never"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "reports/results.json"
+        }
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "reports/junit.xml"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.65.1",
+    "workers": 4,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "api/sample.spec.ts",
+      "file": "api/sample.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Products",
+          "file": "api/sample.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "[TC-016] Get single product by id",
+              "ok": true,
+              "tags": [
+                "happy"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1145,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:38:40.685Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "da5fde39bc2d70264cd2-fef8eb26e0a8e2124b60",
+              "file": "api/sample.spec.ts",
+              "line": 4,
+              "column": 3
+            },
+            {
+              "title": "[TC-026] Non-existent product id -> 404",
+              "ok": true,
+              "tags": [
+                "error-code"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1149,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:38:40.677Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "da5fde39bc2d70264cd2-7bb194d0b34363be254a",
+              "file": "api/sample.spec.ts",
+              "line": 13,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "title": "Auth",
+          "file": "api/sample.spec.ts",
+          "line": 20,
+          "column": 6,
+          "specs": [
+            {
+              "title": "[TC-051] Missing token -> 401",
+              "ok": true,
+              "tags": [
+                "auth",
+                "negative"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 1150,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:38:40.661Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "da5fde39bc2d70264cd2-13624b5ad4fc26fd4e2f",
+              "file": "api/sample.spec.ts",
+              "line": 21,
+              "column": 3
+            },
+            {
+              "title": "[TC-049] Valid token returns current user",
+              "ok": true,
+              "tags": [
+                "auth"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 383,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-23T15:38:40.676Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "da5fde39bc2d70264cd2-3f54eb83a16aeeb58266",
+              "file": "api/sample.spec.ts",
+              "line": 27,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-23T15:38:40.142Z",
+    "duration": 2177.655,
+    "expected": 4,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}
