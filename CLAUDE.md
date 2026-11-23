@@ -27,10 +27,15 @@ Playwright (TypeScript) API test suite for https://dummyjson.com, run by Jenkins
 
 - `playwright-cli` (installed by `playwright-cli install --skills`) - drive a browser from the terminal.
 - `flaky-monitor` - detect, classify and report flaky tests.
+- `test-plan-generator` - acceptance criteria -> test plan -> registered test cases.
+- `test-script-generator` - registered test cases -> Playwright specs.
 
-## Not yet populated
+## Adding new test cases (AC -> plan -> script)
 
-`docs/API_TEST_CASES.md` and `docs/test-cases.json` (the full 114-case source) haven't been added
-yet — only the 4 example tests in `tests/api/sample.spec.ts` exist so far. Once those two files are
-added, run a Generate pass (one module at a time, per the Generator prompt pattern) to turn every
-row into a real test.
+1. Copy `docs/acceptance-criteria/_TEMPLATE.md` to `docs/acceptance-criteria/<feature>.md` and fill it in.
+2. `test-plan-generator` skill -> `docs/test-plans/<feature>.md` (review gate), then registers rows in
+   `docs/API_TEST_CASES.md` + `docs/test-cases.json` with the next free `TC-NNN`.
+3. `test-script-generator` skill -> tests in `tests/api/<module>.spec.ts`, run and flake-probe them.
+4. Finished AC files move to `docs/acceptance-criteria/processed/`.
+
+Full detail: `docs/acceptance-criteria/README.md`. The original 114 cases are already generated.
